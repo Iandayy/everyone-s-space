@@ -1,43 +1,82 @@
 import { useRecoilValue } from "recoil";
 import { categoryState } from "../../../recoil/atom/categoryState";
+
 import Rink from "../../../components/Rink";
+import Button from "../../../components/Button";
 
 const Create = () => {
   const category = useRecoilValue(categoryState);
   return (
     <div>
-      <h2>Add Posts</h2>
+      <h2 className="text-4xl mb-5">Add Posts</h2>
       <form action="/posts" method="POST">
-        <section>
-          <label htmlFor="category">Select Category : </label>
+        <section className="mb-3">
+          <label htmlFor="category">Category : </label>
           <select id="category" name="category">
             <option value="study">study</option>
             <option value="hobby">hobby</option>
             <option value="daily">daily</option>
           </select>
         </section>
-        <section>
-          <label htmlFor="mood">Select Today's Mood: </label>
-          <input id="mood" name="mood" type="number" min="1" max="5" />
+        <section className="mb-5">
+          <label htmlFor="mood">Today's Mood: </label>
+          <input
+            id="mood"
+            name="mood"
+            type="number"
+            min="1"
+            max="5"
+            className="p-1"
+          />
         </section>
-        <section>
-          <label htmlFor="date">Create Date : </label>
-          <input id="date" name="date" type="date" placeholder="date" />
+        <section className="mb-5">
+          <label htmlFor="date">Date : </label>
+          <input
+            id="date"
+            name="date"
+            type="date"
+            placeholder="date"
+            className="p-1"
+          />
         </section>
-        <section>
-          <label htmlFor="name">Create Name : </label>
-          <input id="name" name="name" type="text" placeholder="name" />
+        <section className="mb-5">
+          <label htmlFor="name">Name : </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="name"
+            className="p-1"
+          />
         </section>
-        <section>
-          <label htmlFor="title">Create Title : </label>
-          <input id="title" name="title" type="text" placeholder="title" />
+        <section className="mb-5">
+          <label htmlFor="title">Title : </label>
+          <input
+            id="title"
+            name="title"
+            type="text"
+            placeholder="title"
+            className="p-1"
+          />
         </section>
-        <section>
-          <label htmlFor="content">Create Content : </label>
-          <textarea id="content" name="content" placeholder="content" />
+        <section className="flex mb-5">
+          <label htmlFor="content">Content : </label>
+          <textarea
+            id="content"
+            name="content"
+            placeholder="content"
+            className="p-1"
+          />
         </section>
-        <Rink path={`/${category}`}>Cancel</Rink>
-        <button>Submit</button>
+        <section className="flex justify-center mb-5">
+          <Rink
+            path={`/${category}`}
+            className="bg-blue-800 text-white hover:bg-blue-500 rounded p-2"
+          >
+            Cancel
+          </Rink>
+          <Button str="Submit" />
+        </section>
       </form>
     </div>
   );

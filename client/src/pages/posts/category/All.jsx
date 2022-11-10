@@ -12,10 +12,10 @@ const All = () => {
   return (
     <div>
       <section className="flex justify-between content-center text-center pb-5">
-        <h2 className="text-xl">All Posts</h2>
+        <h2 className="text-3xl">All Posts</h2>
         <Rink
           path="/create"
-          className="bg-blue-800 text-white rounded p-2 w-3/12"
+          className="bg-blue-800 text-white hover:bg-blue-500 rounded p-2 w-3/12"
         >
           Add Post
         </Rink>

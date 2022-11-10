@@ -9,13 +9,22 @@ const Read = () => {
 
   return (
     <div>
-      <h2>{post.title}</h2>
-      <p>{post.content}</p>
-      <strong>{post.name} </strong>
-      <em>{post.date}</em>
-      <p>5 / {post.mood}</p>
-      <Rink path="/update">Edit</Rink>
-      <Delete id={post._id} />
+      <h2 className="text-2xl pb-5">{post.title}</h2>
+      <p className="text-xl pb-5">{post.content}</p>
+      <p className="pb-5">today's mood : {post.mood}</p>
+      <section className="pb-5">
+        <strong>{post.name} </strong>
+        <em>{post.date}</em>
+      </section>
+      <section className="flex justify-center">
+        <Rink
+          path="/update"
+          className="bg-blue-800 text-white hover:bg-blue-500 rounded p-2"
+        >
+          Edit
+        </Rink>
+        <Delete id={post._id} />
+      </section>
     </div>
   );
 };
