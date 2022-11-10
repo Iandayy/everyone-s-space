@@ -11,7 +11,7 @@ const Study = () => {
   return (
     <div>
       <section className="flex justify-between content-center text-center pb-5">
-        <h2 className="text-xl">Study Posts</h2>
+        <h2 className="text-3xl">Study Posts</h2>
         <Rink
           path="/create"
           className="bg-blue-800 text-white rounded p-2 w-3/12"

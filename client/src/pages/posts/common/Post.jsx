@@ -13,11 +13,11 @@ const Post = ({ post }) => {
   return (
     <div>
       <ul>
-        <li>
-          <Rink path="/read" onClick={postIdHandler}>
-            {`${post.title} - `} <strong>{post.name}</strong>
-          </Rink>
-        </li>
+        <Rink path="/read" onClick={postIdHandler}>
+          <li className="border-2 rounded-md p-5 mb-5 hover:bg-gray-100">
+            <strong>{post.title}</strong> <em>{` - ${post.name} `}</em>
+          </li>
+        </Rink>
       </ul>
     </div>
   );
