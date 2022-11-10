@@ -19,7 +19,7 @@
 
 **Server**
 
-![Express](https://img.shields.io/badge/-Express-orange)
+![Express](https://img.shields.io/badge/-Express-ff99c8)
 ![MongoDB](https://img.shields.io/badge/-MongoDB-brightgreen)
 
 <br />
