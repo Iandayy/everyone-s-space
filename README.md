@@ -7,6 +7,7 @@
 ## 📚 사용 기술 스택
 
 **Client**
+
 ![HTML5](https://img.shields.io/badge/-HTML5-red)
 ![CSS3](https://img.shields.io/badge/-CSS3-blue)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow)
@@ -17,6 +18,7 @@
 ![Axios](https://img.shields.io/badge/-Axios-blueviolet)
 
 **Server**
+
 ![Express](https://img.shields.io/badge/-Express-orange)
 ![MongoDB](https://img.shields.io/badge/-MongoDB-brightgreen)
 
