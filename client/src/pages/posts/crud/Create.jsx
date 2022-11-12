@@ -1,11 +1,15 @@
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { categoryState } from "../../../recoil/atom/categoryState";
 
 import Rink from "../../../components/Rink";
 import Button from "../../../components/Button";
 
 const Create = () => {
-  const category = useRecoilValue(categoryState);
+  const [category, setCategory] = useRecoilState(categoryState);
+
+  const categoryHandler = () => {
+    setCategory("all");
+  };
 
   return (
     <div>
@@ -61,12 +65,12 @@ const Create = () => {
         </section>
         <section className="flex justify-center mb-5">
           <Rink
-            path={`/${category}`}
+            path={`/posts/${category}`}
             className="bg-blue-800 text-white hover:bg-blue-500 rounded p-2"
           >
             Cancel
           </Rink>
-          <Button str="Submit" />
+          <Button str="Submit" onClick={categoryHandler} />
         </section>
       </form>
     </div>

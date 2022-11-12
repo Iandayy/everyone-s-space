@@ -12,7 +12,7 @@ const Post = ({ post }) => {
 
   return (
     <ul>
-      <Rink path="/read" onClick={postIdHandler}>
+      <Rink path="/posts/read" onClick={postIdHandler}>
         <li className=" border-2 rounded-md p-5 mb-5 hover:bg-gray-100">
           <strong>{post.title}</strong> <em>{` - ${post.name} `}</em>
         </li>

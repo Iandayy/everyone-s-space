@@ -2,6 +2,9 @@ import { Route, Routes } from "react-router-dom";
 
 import Login from "../pages/auth/Login";
 import Join from "../pages/auth/Join";
+import UserInfo from "../pages/mypage/UserInfo";
+import Profile from "../pages/mypage/Profile";
+import DeleteAccount from "../pages/mypage/DeleteAccount";
 import Home from "../pages/Home";
 import AllPosts from "../pages/posts/category/All";
 import StudyPosts from "../pages/posts/category/Study";
@@ -16,14 +19,17 @@ const Router = () => {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/join" element={<Join />} />
+      <Route path="/mypage/userInfo" element={<UserInfo />} />
+      <Route path="/mypage/profile" element={<Profile />} />
+      <Route path="/mypage/deleteAccount" element={<DeleteAccount />} />
       <Route path="/" element={<Home />} />
-      <Route path="/all" element={<AllPosts />} />
-      <Route path="/study" element={<StudyPosts />} />
-      <Route path="/hobby" element={<HobbyPosts />} />
-      <Route path="/daily" element={<DailyPosts />} />
-      <Route path="/create" element={<CreatePost />} />
-      <Route path="/read" element={<ReadPost />} />
-      <Route path="/update" element={<UpdatePost />} />
+      <Route path="/posts/all" element={<AllPosts />} />
+      <Route path="/posts/study" element={<StudyPosts />} />
+      <Route path="/posts/hobby" element={<HobbyPosts />} />
+      <Route path="/posts/daily" element={<DailyPosts />} />
+      <Route path="/posts/create" element={<CreatePost />} />
+      <Route path="/posts/read" element={<ReadPost />} />
+      <Route path="/posts/update" element={<UpdatePost />} />
     </Routes>
   );
 };

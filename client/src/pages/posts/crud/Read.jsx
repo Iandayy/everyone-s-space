@@ -23,7 +23,7 @@ const Read = () => {
       {!anonymPost && post.member_id === cookies.member_id && (
         <section className="flex justify-center">
           <Rink
-            path="/update"
+            path="/posts/update"
             className="bg-blue-800 text-white hover:bg-blue-500 rounded p-2"
           >
             Edit
