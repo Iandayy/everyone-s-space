@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
+import Login from "../pages/auth/Login";
+import Join from "../pages/auth/Join";
 import Home from "../pages/Home";
 import AllPosts from "../pages/posts/category/All";
 import StudyPosts from "../pages/posts/category/Study";
@@ -12,6 +14,8 @@ import UpdatePost from "../pages/posts/crud/Update";
 const Router = () => {
   return (
     <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/join" element={<Join />} />
       <Route path="/" element={<Home />} />
       <Route path="/all" element={<AllPosts />} />
       <Route path="/study" element={<StudyPosts />} />
