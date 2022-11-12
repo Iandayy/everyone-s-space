@@ -38,13 +38,13 @@ app.post("/posts", async (req, res) => {
     const items = { ...req.body, name: `anonym_${uuidv4().slice(0, 8)}` };
     const newPost = new Post(items);
     await newPost.save();
-    res.redirect("/all");
+    res.redirect("/posts/all");
   } else {
     const user = await User.findById({ _id: member_id });
     const items = { ...req.body, name: user.name, member_id };
     const newPost = new Post(items);
     await newPost.save();
-    res.redirect("/all");
+    res.redirect("/posts/all");
   }
 });
 
@@ -61,14 +61,15 @@ app.patch("/posts/:id", async (req, res) => {
   await Post.findByIdAndUpdate(id, req.body, {
     runValidators: true,
   });
-  res.redirect("/read");
+  res.redirect("/posts/read");
 });
 
 // delete
 app.delete("/posts/:id", async (req, res) => {
   const { id } = req.params;
+  const ReadPost = await Post.findById(id);
   await Post.findByIdAndDelete(id);
-  res.redirect("/all");
+  res.redirect(`/posts/${ReadPost.category}`);
 });
 
 // category
@@ -114,7 +115,7 @@ app.post("/login", async (req, res) => {
   if (user.name === req.body.name && user.password === password) {
     res.cookie("member_id", `${user._id}`, { maxAge: 10 * 60 * 1000 });
     res.cookie("login", "true", { maxAge: 10 * 60 * 1000 });
-    res.redirect("/all");
+    res.redirect("/posts/all");
   }
 });
 
