@@ -6,10 +6,11 @@ import Button from "../../../components/Button";
 
 const Create = () => {
   const category = useRecoilValue(categoryState);
+
   return (
     <div>
       <h2 className="text-4xl mb-5">Add Posts</h2>
-      <form action="/posts" method="POST">
+      <form action="/posts" method="post">
         <section className="mb-3">
           <label htmlFor="category">Category : </label>
           <select id="category" name="category">
@@ -36,16 +37,6 @@ const Create = () => {
             name="date"
             type="date"
             placeholder="date"
-            className="p-1"
-          />
-        </section>
-        <section className="mb-5">
-          <label htmlFor="name">Name : </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="name"
             className="p-1"
           />
         </section>

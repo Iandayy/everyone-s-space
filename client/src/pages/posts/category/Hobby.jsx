@@ -21,7 +21,7 @@ const Hobby = () => {
       </section>
       {posts.length === 0 && <NotPost />}
       {posts.length > 0 && (
-        <section className="py-5">
+        <section className="flex flex-col-reverse py-5">
           {posts.map((post) => (
             <Post key={post._id} post={post} />
           ))}

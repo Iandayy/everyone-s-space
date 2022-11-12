@@ -22,6 +22,9 @@ const postSchema = new mongoose.Schema({
     type: String,
     enum: ["study", "hobby", "daily"],
   },
+  member_id: {
+    type: String,
+  },
 });
 
 const Post = mongoose.model("Post", postSchema);

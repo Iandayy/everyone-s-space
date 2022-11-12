@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Post = require("./models/post");
+const Post = require("../models/post");
 
 mongoose
   .connect("mongodb://localhost:27017/post", {
@@ -44,10 +44,10 @@ const seedPosts = [
   },
 ];
 
-Post.insertMany(seedPosts)
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
-
-// Post.deleteMany()
+// Post.insertMany(seedPosts)
 //   .then((res) => console.log(res))
 //   .catch((err) => console.log(err));
+
+Post.deleteMany()
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
