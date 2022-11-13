@@ -75,7 +75,7 @@ const Update = () => {
         </section>
         <section className="flex justify-center mb-5">
           <Rink
-            path="/read"
+            path="/posts/read"
             className="text-center text-white bg-blue-800 hover:bg-blue-500 rounded p-2"
           >
             Cancel
