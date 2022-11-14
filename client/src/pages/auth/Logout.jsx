@@ -1,7 +1,10 @@
 const Logout = () => {
+  const logoutHandler = () => {
+    window.localStorage.clear();
+  };
   return (
     <form action="/logout" method="POST" className="ml-2">
-      <button>Logout</button>
+      <button onClick={logoutHandler}>Logout</button>
     </form>
   );
 };

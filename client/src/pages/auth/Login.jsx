@@ -1,42 +1,22 @@
-import Button from "../../components/Button";
+import { useSetRecoilState } from "recoil";
+import useAuth from "../../hooks/useAuth";
+
+import { categoryState } from "../../recoil/atom/categoryState";
 
 const Login = () => {
-  return (
-    <div>
-      <h2 className="text-4xl text-center mb-5">Login</h2>
-      <form
-        action="/login"
-        method="POST"
-        className="flex flex-col items-center p-5"
-      >
-        <section className="flex flex-col text-center mb-10">
-          <label htmlFor="name" className="text-lg mb-2">
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Enter Your Name"
-            className="text-center p-1"
-          />
-        </section>
-        <section className="flex flex-col text-center mb-10">
-          <label htmlFor="password" className="text-lg mb-2">
-            Password
-          </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Enter Your Password"
-            className="text-center p-1"
-          />
-        </section>
-        <Button str="Login" />
-      </form>
-    </div>
-  );
+  const setCategory = useSetRecoilState(categoryState);
+
+  const loginHandler = () => {
+    setCategory("all");
+  };
+
+  const login = useAuth({
+    title: "Login",
+    path: "login",
+    check: false,
+    onCategory: loginHandler,
+  });
+  return <>{login}</>;
 };
 
 export default Login;
