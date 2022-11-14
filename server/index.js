@@ -177,6 +177,6 @@ app.post("/extend", async (req, res) => {
   }
 });
 
-app.listen(port, (req, res) => {
+app.listen(process.env.PORT || port, (req, res) => {
   console.log("App is listening on port 8080");
 });
