@@ -17,13 +17,25 @@ mongoose
   .then(() => console.log("Open"))
   .catch((err) => console.log("Error", err));
 
-app.set("views", path.join(__dirname, "views"));
+app.set("client", path.join(__dirname, "client/build/index.html"));
 app.set("view engine", "ejs");
+
+console.log(path.join(__dirname, "client"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000", "https://everyone-s-post.vercel.app/"],
+  })
+);
 app.use(cookieParser("secret"));
+
+app.get("/", async (req, res) => {
+  console.log("hi");
+  res.send("greet");
+});
 
 // all
 app.get("/posts", async (req, res) => {
