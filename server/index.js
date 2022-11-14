@@ -20,8 +20,6 @@ mongoose
 app.set("client", path.join(__dirname, "client/build/index.html"));
 app.set("view engine", "ejs");
 
-console.log(path.join(__dirname, "client"));
-
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(
