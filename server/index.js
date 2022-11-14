@@ -22,12 +22,7 @@ app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use(
-  cors({
-    credentials: true,
-    origin: ["http://localhost:3000", "https://everyone-s-post.vercel.app/"],
-  })
-);
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(cookieParser("secret"));
 
 app.get("/", async (req, res) => {
