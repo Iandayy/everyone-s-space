@@ -25,6 +25,9 @@ const postSchema = new mongoose.Schema({
   member_id: {
     type: String,
   },
+  key: {
+    type: String,
+  },
 });
 
 const Post = mongoose.model("Post", postSchema);
