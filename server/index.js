@@ -150,9 +150,8 @@ app.post("/login", async (req, res) => {
       res.write('<script>window.location="/login"</script>');
     }
     if (user.name === req.body.name && user.password === password) {
-      res.cookie("member_id", `${user._id}`, { maxAge: 2 * 60 * 1000 });
-      res.cookie("login", "true", { maxAge: 2 * 60 * 1000 });
-      res.cookie("extend", "true", { maxAge: 1 * 60 * 1000 });
+      res.cookie("member_id", `${user._id}`, { maxAge: 10 * 60 * 1000 });
+      res.cookie("login", "true", { maxAge: 10 * 60 * 1000 });
       res.redirect("/posts/all");
     }
   } catch (err) {
@@ -164,26 +163,25 @@ app.post("/login", async (req, res) => {
 app.post("/logout", async (req, res) => {
   res.clearCookie("member_id");
   res.clearCookie("login");
-  res.clearCookie("extend");
   res.redirect("/");
 });
 
 // extend
-app.post("/extend", async (req, res) => {
-  try {
-    const { member_id } = req.cookies;
-    const user = await User.findById(member_id);
-    res.cookie("member_id", `${user._id}`, { maxAge: 2 * 60 * 1000 });
-    res.cookie("login", "true", { maxAge: 2 * 60 * 1000 });
-    res.cookie("extend", "true", { maxAge: 1 * 60 * 1000 });
-    res.write("<script>alert('Extended login time.')</script>");
-    res.write('<script>window.location="/"</script>');
-  } catch (err) {
-    console.log("err", err);
-    res.redirect("/");
-  }
-});
+// app.post("/extend", async (req, res) => {
+//   try {
+//     const { member_id } = req.cookies;
+//     const user = await User.findById(member_id);
+//     res.cookie("member_id", `${user._id}`, { maxAge: 2 * 60 * 1000 });
+//     res.cookie("login", "true", { maxAge: 2 * 60 * 1000 });
+//     res.cookie("extend", "true", { maxAge: 1 * 60 * 1000 });
+//     res.write("<script>alert('Extended login time.')</script>");
+//     res.write('<script>window.location="/"</script>');
+//   } catch (err) {
+//     console.log("err", err);
+//     res.redirect("/");
+//   }
+// });
 
-app.listen(process.env.PORT || port, (req, res) => {
+app.listen(port, (req, res) => {
   console.log("App is listening on port 8080");
 });

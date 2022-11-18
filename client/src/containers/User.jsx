@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 import { categoryState } from "../recoil/atom/categoryState";
 import Rink from "../components/Rink";
 import Logout from "../pages/auth/Logout";
-import Time from "./Time";
 
 const User = () => {
   const [cookies] = useCookies();
@@ -31,7 +30,6 @@ const User = () => {
       )}
       {cookies.login && (
         <article className="flex text-xl sm: text-text-lg">
-          <Time />
           {path.includes("/posts") && (
             <Rink path="/mypage/userInfo" onClick={categoryHandler}>
               Mypage
