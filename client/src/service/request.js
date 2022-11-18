@@ -3,7 +3,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 const instance = axios.create({
-  baseURL: "https://everyone-s-post.herokuapp.com/",
+  baseURL: "http://localhost:8080",
 });
 
 export default instance;
