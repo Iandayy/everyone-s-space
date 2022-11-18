@@ -27,11 +27,6 @@ app.use(methodOverride("_method"));
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(cookieParser("secret"));
 
-app.get("/", async (req, res) => {
-  console.log("hi");
-  res.send("greet");
-});
-
 // all
 app.get("/posts", async (req, res) => {
   try {
@@ -91,9 +86,8 @@ app.patch("/posts/:id", async (req, res) => {
 app.delete("/posts/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const ReadPost = await Post.findById(id);
     await Post.findByIdAndDelete(id);
-    res.redirect(`/posts/${ReadPost.category}`);
+    res.redirect("/posts/all");
   } catch (err) {
     console.log("err", err);
   }
@@ -113,6 +107,14 @@ app.get("/search", async (req, res) => {
 // join
 app.post("/join", async (req, res) => {
   try {
+    const findUser = await User.findOne({ name: req.body.name });
+    if (findUser !== null) {
+      res.write(
+        "<script>alert('A name that exists. Please use a different name.')</script>"
+      );
+      res.write('<script>window.location="/join"</script>');
+      return;
+    }
     if (req.body.password !== req.body.check) {
       res.write("<script>alert('Please check your password again.')</script>");
       res.write('<script>window.location="/join"</script>');
@@ -150,8 +152,9 @@ app.post("/login", async (req, res) => {
       res.write('<script>window.location="/login"</script>');
     }
     if (user.name === req.body.name && user.password === password) {
-      res.cookie("member_id", `${user._id}`, { maxAge: 10 * 60 * 1000 });
-      res.cookie("login", "true", { maxAge: 10 * 60 * 1000 });
+      res.cookie("member_id", `${user._id}`, { maxAge: 2 * 60 * 1000 });
+      res.cookie("login", "true", { maxAge: 2 * 60 * 1000 });
+      res.cookie("extend", "true", { maxAge: 1 * 60 * 1000 });
       res.redirect("/posts/all");
     }
   } catch (err) {
@@ -163,24 +166,25 @@ app.post("/login", async (req, res) => {
 app.post("/logout", async (req, res) => {
   res.clearCookie("member_id");
   res.clearCookie("login");
+  res.clearCookie("extend");
   res.redirect("/");
 });
 
 // extend
-// app.post("/extend", async (req, res) => {
-//   try {
-//     const { member_id } = req.cookies;
-//     const user = await User.findById(member_id);
-//     res.cookie("member_id", `${user._id}`, { maxAge: 2 * 60 * 1000 });
-//     res.cookie("login", "true", { maxAge: 2 * 60 * 1000 });
-//     res.cookie("extend", "true", { maxAge: 1 * 60 * 1000 });
-//     res.write("<script>alert('Extended login time.')</script>");
-//     res.write('<script>window.location="/"</script>');
-//   } catch (err) {
-//     console.log("err", err);
-//     res.redirect("/");
-//   }
-// });
+app.post("/extend", async (req, res) => {
+  try {
+    const { member_id } = req.cookies;
+    const user = await User.findById(member_id);
+    res.cookie("member_id", `${user._id}`, { maxAge: 2 * 60 * 1000 });
+    res.cookie("login", "true", { maxAge: 2 * 60 * 1000 });
+    res.cookie("extend", "true", { maxAge: 1 * 60 * 1000 });
+    res.write("<script>alert('Extended login time.')</script>");
+    res.write('<script>window.location="/"</script>');
+  } catch (err) {
+    console.log("err", err);
+    res.redirect("/");
+  }
+});
 
 app.listen(port, (req, res) => {
   console.log("App is listening on port 8080");

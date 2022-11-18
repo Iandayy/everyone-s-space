@@ -21,7 +21,7 @@ const User = () => {
   return (
     <>
       {cookies.login === undefined && (
-        <article className="text-xl sm: text-text-lg">
+        <article className="text-xl sm:text-lg s:text-base">
           <Rink path="/login">Login</Rink>
           <Rink path="/join" className="ml-2">
             Join
@@ -29,7 +29,7 @@ const User = () => {
         </article>
       )}
       {cookies.login && (
-        <article className="flex text-xl sm: text-text-lg">
+        <article className="flex text-xl sm:text-lg s:text-base">
           {path.includes("/posts") && (
             <Rink path="/mypage/userInfo" onClick={categoryHandler}>
               Mypage
