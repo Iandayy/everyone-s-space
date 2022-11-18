@@ -1,6 +1,8 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const path = require("path");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
@@ -13,7 +15,7 @@ const Post = require("./models/post");
 const User = require("./models/user");
 
 mongoose
-  .connect("mongodb://localhost:27017/post")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("Open"))
   .catch((err) => console.log("Error", err));
 
