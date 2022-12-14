@@ -2,7 +2,7 @@ import { useCookies } from "react-cookie";
 
 import Button from "../../components/Button";
 
-const DeleteAccount = () => {
+const Account = () => {
   const [cookies] = useCookies();
 
   const deleteHandler = () => {
@@ -10,7 +10,7 @@ const DeleteAccount = () => {
   };
   return (
     <div className="flex flex-col text-center">
-      <h2 className="text-3xl mb-4">DeleteAccount</h2>
+      <h2 className="text-3xl mb-4">Delete Account</h2>
       <section>
         <p className="text-lg pb-5">
           Are you sure you want to close your account?
@@ -28,4 +28,4 @@ const DeleteAccount = () => {
   );
 };
 
-export default DeleteAccount;
+export default Account;

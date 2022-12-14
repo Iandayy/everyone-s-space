@@ -9,17 +9,11 @@ const User = require("../models/user");
 router.post("/join", async (req, res) => {
   try {
     const findUser = await User.findOne({ name: req.body.name });
+
     if (findUser !== null) {
-      res.write(
-        "<script>alert('A name that exists. Please use a different name.')</script>"
-      );
-      res.write('<script>window.location="/join"</script>');
-      return;
-    }
-    if (req.body.password !== req.body.check) {
-      res.write("<script>alert('Please check your password again.')</script>");
-      res.write('<script>window.location="/join"</script>');
-      return;
+      res
+        .status(400)
+        .send({ message: "A name that exists. Please write another name." });
     }
     const items = {
       name: req.body.name,
@@ -41,18 +35,14 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ name: req.body.name });
     if (user === null) {
-      res.write("<script>alert('Please check your name again.')</script>");
-      res.write('<script>window.location="/login"</script>');
-      return;
+      res.status(401).send({ message: "Please check your name again." });
     }
     const password = uuidv5(
       req.body.password,
       "b2e670b9-dcb9-400a-964e-a3899653725d"
     );
     if (user.password !== password) {
-      res.write("<script>alert('Please check your password again.')</script>");
-      res.write('<script>window.location="/login"</script>');
-      return;
+      res.status(401).send({ message: "Please check your password again." });
     }
     if (user.name === req.body.name && user.password === password) {
       res.cookie("member_id", `${user._id}`, { maxAge: 2 * 60 * 1000 });

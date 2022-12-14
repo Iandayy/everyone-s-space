@@ -5,7 +5,7 @@ import useNav from "../hooks/useNav";
 
 const Nav = () => {
   const postCategory = ["all", "study", "hobby", "daily"];
-  const mypageCategory = ["userInfo", "profile", "deleteAccount"];
+  const mypageCategory = ["userInfo", "profile", "account"];
 
   const postNav = useNav({ categories: postCategory, to: "posts" });
   const mypageNav = useNav({ categories: mypageCategory, to: "mypage" });

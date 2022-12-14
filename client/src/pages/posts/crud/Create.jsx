@@ -5,6 +5,11 @@ import Rink from "../../../components/Rink";
 import Button from "../../../components/Button";
 
 const Create = () => {
+  const today = new Date();
+  const date = `${today.getFullYear()}-${
+    today.getMonth() + 1
+  }-${today.getDate()}`;
+
   const [category, setCategory] = useRecoilState(categoryState);
 
   const categoryHandler = () => {
@@ -29,6 +34,7 @@ const Create = () => {
             id="mood"
             name="mood"
             type="number"
+            defaultValue={1}
             min="1"
             max="5"
             className="p-1"
@@ -40,6 +46,7 @@ const Create = () => {
             id="date"
             name="date"
             type="date"
+            defaultValue={date}
             placeholder="date"
             className="p-1"
           />
