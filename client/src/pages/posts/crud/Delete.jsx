@@ -10,6 +10,7 @@ const Delete = ({ id }) => {
     alert("Delete post");
     setCategory("all");
   };
+
   return (
     <form action={`/posts/${id}?_method=DELETE`} method="POST">
       <Button str="Delete" onClick={deleteHandler} />

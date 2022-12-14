@@ -4,6 +4,17 @@ const router = express.Router();
 const Post = require("../models/post");
 const User = require("../models/user");
 
+router.get("/userInfo/:id", async (req, res) => {
+  try {
+    console.log(req.body);
+    // const userInfo = await User.findById(id);
+    // console.log(userInfo);
+    res.send("ok");
+  } catch (err) {
+    console.log("err", err);
+  }
+});
+
 router.delete("/deleteAccount/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -20,6 +31,7 @@ router.delete("/deleteAccount/:id", async (req, res) => {
     return;
   } catch (err) {
     console.log("err", err);
+    res.redirect("/");
   }
 });
 
