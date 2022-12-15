@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL:
+    "https://port-0-everyone-s-post-dpuqy925lbnnny33.gksl2.cloudtype.app/",
 });
 
 export default instance;

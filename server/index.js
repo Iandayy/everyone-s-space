@@ -27,6 +27,10 @@ app.use("/", post);
 app.use("/", auth);
 app.use("/", mypage);
 
+app.get("/", (req, res) => {
+  res.send("ok");
+});
+
 app.listen(port, (req, res) => {
   console.log("App is listening on port 8080");
 });
