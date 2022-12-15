@@ -17,7 +17,7 @@ mongoose
   .then(() => console.log("Open"))
   .catch((err) => console.log("Error", err));
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser("secret"));
