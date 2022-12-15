@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
 
+const Post = require("../models/post");
+
 const post = require("./router/post");
 const auth = require("./router/auth");
 const mypage = require("./router/mypage");
@@ -29,6 +31,15 @@ app.use("/", mypage);
 
 app.get("/", (req, res) => {
   res.send("ok");
+});
+
+app.get("/posts", async (req, res) => {
+  try {
+    const posts = await Post.find({});
+    res.json(posts);
+  } catch (err) {
+    console.log("err", err);
+  }
 });
 
 app.listen(port, (req, res) => {
