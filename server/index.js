@@ -33,15 +33,6 @@ app.get("/", (req, res) => {
   res.send("ok");
 });
 
-app.get("/posts", async (req, res) => {
-  try {
-    const posts = await Post.find({});
-    res.json(posts);
-  } catch (err) {
-    console.log("err", err);
-  }
-});
-
 app.listen(port, (req, res) => {
   console.log("App is listening on port 8080");
 });
