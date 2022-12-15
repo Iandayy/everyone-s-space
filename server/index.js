@@ -8,8 +8,6 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
 
-const Post = require("../models/post");
-
 const post = require("./router/post");
 const auth = require("./router/auth");
 const mypage = require("./router/mypage");
