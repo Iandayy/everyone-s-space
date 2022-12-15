@@ -19,8 +19,10 @@ mongoose
 
 app.use(
   cors({
-    origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+    origin: [
+      "http://localhost:3000",
+      "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
+    ],
   })
 );
 app.use(express.urlencoded({ extended: true }));
