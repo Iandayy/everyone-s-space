@@ -8,7 +8,7 @@ export const userInfoState = selector({
   key: "userInfoState",
   get: async ({ get }) => {
     const id = get(postIdState);
-    const readPost = await instance.get(`/userInfo/${id}`);
+    const readPost = await instance.get(`/mypage/userInfo/${id}`);
     const data = await readPost.data;
     return data;
   },

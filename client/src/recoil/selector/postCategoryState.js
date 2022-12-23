@@ -7,8 +7,14 @@ export const postCategoryState = selector({
   key: "postCategoryState",
   get: async ({ get }) => {
     const categoryName = get(categoryState);
-    const postCategory = await instance.get(`/search?category=${categoryName}`);
-    const data = await postCategory.data;
-    return data;
+    try {
+      const postCategory = await instance.get(
+        `/posts/search?category=${categoryName}`
+      );
+      const data = await postCategory.data;
+      return data;
+    } catch (err) {
+      console.log("err", err);
+    }
   },
 });

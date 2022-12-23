@@ -32,9 +32,9 @@ app.use(express.json());
 app.use(cookieParser("secret"));
 app.use(methodOverride("_method"));
 
-app.use("/", post);
-app.use("/", auth);
-app.use("/", mypage);
+app.use("/posts", post);
+app.use("/auth", auth);
+app.use("/mypage", mypage);
 
 app.get("/", (req, res) => {
   res.send("ok");
