@@ -17,7 +17,16 @@ mongoose
   .then(() => console.log("Open"))
   .catch((err) => console.log("Error", err));
 
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  })
+);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser("secret"));
@@ -26,6 +35,10 @@ app.use(methodOverride("_method"));
 app.use("/posts", post);
 app.use("/auth", auth);
 app.use("/mypage", mypage);
+
+app.get("/", (req, res) => {
+  res.send("ok");
+});
 
 app.listen(port, (req, res) => {
   console.log("App is listening on port 8080");

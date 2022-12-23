@@ -1,11 +1,9 @@
 import axios from "axios";
 
 const instance = axios.create({
-  headers: {
-    "Access-Control-Allow-Origin": "http://localhost:8080",
-  },
-  baseURL: "http://localhost:8080",
-  withCredentials: true,
+  baseURL:
+    "https://port-0-everyone-s-post-dpuqy925lbnnny33.gksl2.cloudtype.app/",
+  headers: { withCredentials: true },
 });
 
 export default instance;
