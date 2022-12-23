@@ -7,7 +7,7 @@ const Post = require("../models/post");
 const User = require("../models/user");
 
 router
-  .route("/posts")
+  .route("/")
   // all
   .get(async (req, res) => {
     try {
@@ -38,8 +38,19 @@ router
     }
   });
 
+// category;
+router.get("/search", async (req, res) => {
+  try {
+    const { category } = req.query;
+    const categoryPosts = await Post.find({ category: category });
+    res.json(categoryPosts);
+  } catch (err) {
+    console.log("err", err);
+  }
+});
+
 router
-  .route("/posts/:id")
+  .route("/:id")
   // show
   .get(async (req, res) => {
     try {
@@ -72,16 +83,5 @@ router
       console.log("err", err);
     }
   });
-
-// category
-router.get("/search", async (req, res) => {
-  try {
-    const { category } = req.query;
-    const categoryPosts = await Post.find({ category });
-    res.json(categoryPosts);
-  } catch (err) {
-    console.log("err", err);
-  }
-});
 
 module.exports = router;

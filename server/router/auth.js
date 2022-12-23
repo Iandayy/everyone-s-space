@@ -14,6 +14,7 @@ router.post("/join", async (req, res) => {
       res
         .status(400)
         .send({ message: "A name that exists. Please write another name." });
+      return;
     }
     const items = {
       name: req.body.name,
@@ -24,7 +25,7 @@ router.post("/join", async (req, res) => {
     };
     const newJoin = new User(items);
     await newJoin.save();
-    res.redirect("/login");
+    res.send({ message: "Sign up !" });
   } catch (err) {
     console.log("err", err);
   }
@@ -36,6 +37,7 @@ router.post("/login", async (req, res) => {
     const user = await User.findOne({ name: req.body.name });
     if (user === null) {
       res.status(401).send({ message: "Please check your name again." });
+      return;
     }
     const password = uuidv5(
       req.body.password,
@@ -43,11 +45,17 @@ router.post("/login", async (req, res) => {
     );
     if (user.password !== password) {
       res.status(401).send({ message: "Please check your password again." });
+      return;
     }
+    const options = {
+      sameSite: "none",
+      secure: true,
+      maxAge: 2 * 60 * 1000,
+    };
     if (user.name === req.body.name && user.password === password) {
-      res.cookie("member_id", `${user._id}`, { maxAge: 2 * 60 * 1000 });
-      res.cookie("login", "true", { maxAge: 2 * 60 * 1000 });
-      res.redirect("/posts/all");
+      res.cookie("member_id", `${user._id}`, options);
+      res.cookie("login", "true", options);
+      res.send({ message: "Welcome to Everyone's Post !" });
     }
   } catch (err) {
     console.log("err", err);
@@ -60,21 +68,5 @@ router.post("/logout", async (req, res) => {
   res.clearCookie("login");
   res.redirect("/");
 });
-
-// extend
-// router.post("/extend", async (req, res) => {
-//   try {
-//     const { member_id } = req.cookies;
-//     const user = await User.findById(member_id);
-//     res.cookie("member_id", `${user._id}`, { maxAge: 2 * 60 * 1000 });
-//     res.cookie("login", "true", { maxAge: 2 * 60 * 1000 });
-//     res.cookie("extend", "true", { maxAge: 1 * 60 * 1000 });
-//     res.write("<script>alert('Extended login time.')</script>");
-//     res.write('<script>window.location="/"</script>');
-//   } catch (err) {
-//     console.log("err", err);
-//     res.redirect("/");
-//   }
-// });
 
 module.exports = router;

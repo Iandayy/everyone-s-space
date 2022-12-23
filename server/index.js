@@ -17,15 +17,15 @@ mongoose
   .then(() => console.log("Open"))
   .catch((err) => console.log("Error", err));
 
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser("secret"));
 app.use(methodOverride("_method"));
 
-app.use("/", post);
-app.use("/", auth);
-app.use("/", mypage);
+app.use("/posts", post);
+app.use("/auth", auth);
+app.use("/mypage", mypage);
 
 app.listen(port, (req, res) => {
   console.log("App is listening on port 8080");
