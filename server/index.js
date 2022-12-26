@@ -24,7 +24,7 @@ app.use(
       "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
     ],
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"]
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"],
   })
 );
 app.use(express.urlencoded({ extended: true }));
