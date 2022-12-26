@@ -20,7 +20,6 @@ mongoose
 app.use(
   cors({
     origin: "*",
-    credentials: true,
   })
 );
 app.use(express.urlencoded({ extended: true }));
