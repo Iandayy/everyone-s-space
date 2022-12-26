@@ -27,8 +27,7 @@ const useAuth = (props) => {
       const res = await instance.post(`/auth/${props.path}`, items);
       alert(res.data.message);
       if (props.path === "join") window.location.replace("/login");
-      // if (props.path === "login") window.location.replace("/posts/all");
-      console.log(res);
+      if (props.path === "login") window.location.replace("/posts/all");
       setInputValue({
         name: "",
         password: "",
@@ -37,15 +36,13 @@ const useAuth = (props) => {
       console.log(res);
     } catch (err) {
       console.log("err", err);
-      alert(err.response.data.message);
+      // alert(err.response.data.message);
     }
   };
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-4xl text-center mb-5">{props.title}</h2>
       <form
-        // action={`/auth/${props.path}`}
-        // method="POST"
         onSubmit={submitHandler}
         className="flex flex-col items-center p-5 mb-10 border-2 rounded-md w-80"
       >
