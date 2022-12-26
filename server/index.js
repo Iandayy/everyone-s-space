@@ -19,10 +19,7 @@ mongoose
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
-    ],
+    origin: "*",
     credentials: true,
   })
 );
