@@ -27,7 +27,8 @@ const useAuth = (props) => {
       const res = await instance.post(`/auth/${props.path}`, items);
       alert(res.data.message);
       if (props.path === "join") window.location.replace("/login");
-      if (props.path === "login") window.location.replace("/posts/all");
+      // if (props.path === "login") window.location.replace("/posts/all");
+      console.log(res);
       setInputValue({
         name: "",
         password: "",
