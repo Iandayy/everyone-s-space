@@ -17,16 +17,7 @@ mongoose
   .then(() => console.log("Open"))
   .catch((err) => console.log("Error", err));
 
-app.use(
-  cors({
-     origin: [
-      "http://localhost:3000",
-      "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
-    ],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"],
-  })
-);
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser("secret"));
