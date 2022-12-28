@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
     const options = {
       sameSite: "none",
       secure: true,
-      maxAge: 2 * 60 * 1000,
+      maxAge: 10 * 60 * 1000,
     };
     if (user.name === req.body.name && user.password === password) {
       res.cookie("member_id", `${user._id}`, options);
@@ -66,7 +66,7 @@ router.post("/login", async (req, res) => {
 router.post("/logout", async (req, res) => {
   res.clearCookie("member_id");
   res.clearCookie("login");
-  res.redirect("/");
+  res.send({ message: "Thank you !" });
 });
 
 module.exports = router;
