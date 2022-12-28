@@ -18,8 +18,11 @@ mongoose
   .catch((err) => console.log("Error", err));
 
 app.use(
- cors({
-    origin: "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
+    ],
     credentials: true,
   })
 );
