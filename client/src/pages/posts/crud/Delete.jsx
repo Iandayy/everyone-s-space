@@ -1,18 +1,21 @@
 import { useSetRecoilState } from "recoil";
 import { categoryState } from "../../../recoil/atom/categoryState";
+import instance from "../../../service/request";
 
 import Button from "../../../components/Button";
 
 const Delete = ({ id }) => {
   const setCategory = useSetRecoilState(categoryState);
 
-  const deleteHandler = () => {
-    alert("Delete post");
+  const deleteHandler = async () => {
+    const res = await instance.delete(`/posts/${id}`);
+    alert(res.data.message);
     setCategory("all");
+    window.location.replace("/posts/all");
   };
 
   return (
-    <form action={`/posts/${id}?_method=DELETE`} method="POST">
+    <form>
       <Button str="Delete" onClick={deleteHandler} />
     </form>
   );

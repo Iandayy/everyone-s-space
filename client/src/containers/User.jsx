@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { useCookies } from "react-cookie";
 import { useLocation } from "react-router-dom";
@@ -8,10 +9,15 @@ import Logout from "../pages/auth/Logout";
 
 const User = () => {
   const [cookies] = useCookies();
-
   const path = useLocation().pathname;
 
+  const [isLogin, setIsLogin] = useState(false);
   const setCategory = useSetRecoilState(categoryState);
+
+  useEffect(() => {
+    if (cookies.login === undefined) setIsLogin(false);
+    else setIsLogin(true);
+  }, [cookies]);
 
   const categoryHandler = () => {
     if (path.includes("/posts")) setCategory("userInfo");
@@ -20,7 +26,7 @@ const User = () => {
 
   return (
     <>
-      {cookies.login === undefined && (
+      {!isLogin && (
         <article className="text-xl sm:text-lg s:text-base">
           <Rink path="/login">Login</Rink>
           <Rink path="/join" className="ml-2">
@@ -28,7 +34,7 @@ const User = () => {
           </Rink>
         </article>
       )}
-      {cookies.login && (
+      {isLogin && (
         <article className="flex text-xl sm:text-lg s:text-base">
           {path.includes("/posts") && (
             <Rink path="/mypage/userInfo" onClick={categoryHandler}>

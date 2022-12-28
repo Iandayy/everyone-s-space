@@ -1,9 +1,13 @@
+import instance from "../../service/request.js";
+
 const Logout = () => {
-  const logoutHandler = () => {
-    window.localStorage.clear();
+  const logoutHandler = async () => {
+    const res = await instance.post("/auth/logout");
+    alert(res.data.message);
+    window.location.replace("/");
   };
   return (
-    <form action="/auth/logout" method="POST" className="ml-2">
+    <form>
       <button onClick={logoutHandler}>Logout</button>
     </form>
   );
