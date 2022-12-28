@@ -25,14 +25,13 @@ router
         const items = { ...req.body, name: `anonym_${uuidv4().slice(0, 8)}` };
         const newPost = new Post(items);
         await newPost.save();
-        res.redirect("/posts/all");
       } else {
         const user = await User.findById({ _id: member_id });
         const items = { ...req.body, name: user.name, member_id };
         const newPost = new Post(items);
         await newPost.save();
-        res.redirect("/posts/all");
       }
+      res.send({ message: "Add your post" });
     } catch (err) {
       console.log("err", err);
     }
@@ -68,7 +67,7 @@ router
       await Post.findByIdAndUpdate(id, req.body, {
         runValidators: true,
       });
-      res.redirect("/posts/read");
+      res.send({ message: "Update your post !" });
     } catch (err) {
       console.log("err", err);
     }
@@ -78,7 +77,7 @@ router
     try {
       const { id } = req.params;
       await Post.findByIdAndDelete(id);
-      res.redirect("/posts/all");
+      res.send({ message: "Delete your post !" });
     } catch (err) {
       console.log("err", err);
     }
