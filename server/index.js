@@ -25,6 +25,17 @@ app.use(
       "https://everyone-s-post.vercel.app/"
     ],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+    maxAge: 3600,
+    allowedHeaders: [
+      "origin",
+      "content-type",
+      "accept",
+      "x-requested-with",
+      "access-control-request-method",
+      "access-control-request-headers",
+      "authorization",
+    ],
   })
 );
 app.use(express.urlencoded({ extended: true }));
