@@ -7,7 +7,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
-import { createProxyMiddleware } from "http-proxy-middleware";
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const post = require("./router/post");
 const auth = require("./router/auth");
