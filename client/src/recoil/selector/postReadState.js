@@ -7,8 +7,12 @@ export const postReadState = selector({
   key: "postReadState",
   get: async ({ get }) => {
     const id = get(postIdState);
-    const readPost = await instance.get(`/posts/${id}`);
-    const data = await readPost.data;
-    return data;
+    try {
+      const readPost = await instance.get(`/posts/${id}`);
+      const data = await readPost.data;
+      return data;
+    } catch (err) {
+      console.log("err", err);
+    }
   },
 });
