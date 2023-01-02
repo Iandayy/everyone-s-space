@@ -7,7 +7,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
-const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const post = require("./router/post");
 const auth = require("./router/auth");
@@ -33,13 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser("secret"));
 app.use(methodOverride("_method"));
-app.use(
-  "/",
-  createProxyMiddleware({
-    target: "https://everyone-s-post.vercel.app/",
-    changeOrigin: true,
-  })
-);
 
 app.use("/posts", post);
 app.use("/auth", auth);
