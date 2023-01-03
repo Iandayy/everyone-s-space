@@ -9,7 +9,7 @@ export const postsAllState = selector({
       const data = await allPosts.data;
       console.log(allPosts);
       console.log(data);
-//       return data;
+      return data;
     } catch (err) {
       console.log("err", err);
     }
