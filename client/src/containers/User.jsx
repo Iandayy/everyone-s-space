@@ -28,16 +28,20 @@ const User = () => {
     <>
       {!isLogin && (
         <article className="text-xl sm:text-lg s:text-base">
-          <Rink path="/login">Login</Rink>
-          <Rink path="/join" className="ml-2">
-            Join
+          <Rink path="/login" className="mr-2">
+            Login
           </Rink>
+          <Rink path="/join">Join</Rink>
         </article>
       )}
       {isLogin && (
         <article className="flex text-xl sm:text-lg s:text-base">
           {path.includes("/posts") && (
-            <Rink path="/mypage/userInfo" onClick={categoryHandler}>
+            <Rink
+              path="/mypage/userInfo"
+              onClick={categoryHandler}
+              className="mr-2"
+            >
               Mypage
             </Rink>
           )}
