@@ -7,6 +7,7 @@ export const postsAllState = selector({
     try {
       const allPosts = await instance.get("/posts");
       const data = await allPosts.data;
+            console.log(allPosts);
       return data;
     } catch (err) {
       console.log("err", err);
