@@ -44,5 +44,5 @@
   "devDependencies": {
     "tailwindcss": "^3.2.2"
   },
-  "proxy": "https://port-0-server-dpuqy925lbnnny33.gksl2.cloudtype.app/"
+  "proxy": "http://localhost:8080"
 }

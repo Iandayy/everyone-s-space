@@ -4,10 +4,8 @@ import usePost from "../../../hooks/usePost";
 import instance from "../../../service/request";
 
 const Create = () => {
-  const today = new Date();
-  const date = `${today.getFullYear()}-${
-    today.getMonth() + 1
-  }-${today.getDate()}`;
+  const today = new Date().toISOString();
+  const date = today.slice(0, 10);
 
   const setCategory = useSetRecoilState(categoryState);
 
