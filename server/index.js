@@ -24,11 +24,7 @@ app.use(methodOverride("_method"));
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
-      "https://everyone-s-post.vercel.app/",
-    ],
+    origin: true,
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
   })
