@@ -38,7 +38,9 @@ const corsOptions = {
   credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
 };
+
 app.use(cors(corsOptions));
+
 // app.use(
 //   cors({
 //     origin: [
@@ -50,6 +52,7 @@ app.use(cors(corsOptions));
 //     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
 //   })
 // );
+
 app.use("/posts", post);
 app.use("/auth", auth);
 app.use("/mypage", mypage);
