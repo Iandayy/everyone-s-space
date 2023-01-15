@@ -46,7 +46,7 @@ const User = () => {
             </Rink>
           )}
           {path.includes("/mypage") && (
-            <Rink path="/posts/all" onClick={categoryHandler}>
+            <Rink path="/posts/all" onClick={categoryHandler} className="mr-2">
               Posts
             </Rink>
           )}

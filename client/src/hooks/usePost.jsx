@@ -40,6 +40,7 @@ const usePost = (props) => {
       props.setCategory(props.categoryNav);
     } catch (err) {
       console.log("err", err);
+      alert(err.response.data.message);
     }
   };
   return (
