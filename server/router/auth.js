@@ -51,6 +51,7 @@ router.post("/login", async (req, res) => {
       sameSite: "None",
       secure: true,
       maxAge: 10 * 60 * 1000,
+      path: "/",
     };
     if (user.name === req.body.name && user.password === password) {
       res.cookie("member_id", `${user._id}`, options);
