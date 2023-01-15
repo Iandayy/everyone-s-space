@@ -17,6 +17,11 @@ mongoose
   .then(() => console.log("Open"))
   .catch((err) => console.log("Error", err));
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cookieParser("secret"));
+app.use(methodOverride("_method"));
+
 app.use(
   cors({
     origin: [
@@ -28,12 +33,6 @@ app.use(
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
   })
 );
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cookieParser("secret"));
-app.use(methodOverride("_method"));
-
 app.use("/posts", post);
 app.use("/auth", auth);
 app.use("/mypage", mypage);
