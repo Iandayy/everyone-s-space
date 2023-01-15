@@ -51,7 +51,7 @@ router.post("/login", async (req, res) => {
       sameSite: "None",
       secure: true,
       maxAge: 10 * 60 * 1000,
-      domain: "port-0-server-dpuqy925lbnnny33.gksl2.cloudtype.app",
+      domain: ".port-0-server-dpuqy925lbnnny33.gksl2.cloudtype.app",
       path: "/",
     };
     if (user.name === req.body.name && user.password === password) {
