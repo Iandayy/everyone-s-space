@@ -38,8 +38,6 @@ app.use("/posts", post);
 app.use("/auth", auth);
 app.use("/mypage", mypage);
 
-app.set('trust proxy',1)
-
 app.get("/", (req, res) => {
   res.send("ok");
 });
