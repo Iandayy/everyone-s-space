@@ -51,7 +51,6 @@ router.post("/login", async (req, res) => {
       sameSite: "none",
       secure: true,
       maxAge: 10 * 60 * 1000,
-      domain: "everyone-s-post.vercel.app",
     };
     if (user.name === req.body.name && user.password === password) {
       res.cookie("member_id", `${user._id}`, options);
