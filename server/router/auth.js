@@ -48,8 +48,8 @@ router.post("/login", async (req, res) => {
       return;
     }
     const options = {
-      sameSite: "None",
-      secure: true,
+//       sameSite: "None",
+//       secure: true,
       maxAge: 10 * 60 * 1000,
     };
     if (user.name === req.body.name && user.password === password) {
