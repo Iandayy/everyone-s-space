@@ -48,6 +48,7 @@ router.post("/login", async (req, res) => {
       secure: true,
       maxAge: 10 * 60 * 1000,
       path: "/",
+      domain: ".web-client-dpuqy925lbnnny33.gksl2.cloudtype.app",
       signed: true,
     };
 
