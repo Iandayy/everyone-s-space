@@ -20,7 +20,7 @@ const Read = () => {
         <strong>{post.name} </strong>
         <em>{post.date}</em>
       </section>
-      {!anonymPost && post.member_id === cookies.member_id && (
+      {!anonymPost && cookies.member_id.includes(post.member_id) && (
         <section className="flex justify-center">
           <Rink
             path="/posts/update"
