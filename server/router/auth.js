@@ -48,7 +48,7 @@ router.post("/login", async (req, res) => {
       return;
     }
     const options = {
-      sameSite: "None",
+      sameSite: "none",
       secure: true,
       maxAge: 10 * 60 * 1000,
     };
