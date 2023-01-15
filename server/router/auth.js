@@ -49,6 +49,7 @@ router.post("/login", async (req, res) => {
     }
     const options = {
       sameSite: "none",
+      secure: true,
       maxAge: 10 * 60 * 1000,
     };
     if (user.name === req.body.name && user.password === password) {
