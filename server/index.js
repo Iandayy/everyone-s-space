@@ -17,14 +17,17 @@ mongoose
   .then(() => console.log("Open"))
   .catch((err) => console.log("Error", err));
 
-
-app.use(function (req, res, next) {
-res.setHeader('Access-Control-Allow-Origin', 'https://everyone-s-post.vercel.app/');
-res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-res.setHeader('Access-Control-Allow-Credentials', true);
-next();
-});
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
+      "https://everyone-s-post.vercel.app/",
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+  })
+);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
