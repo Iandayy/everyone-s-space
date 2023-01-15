@@ -22,36 +22,17 @@ app.use(express.json());
 app.use(cookieParser("secret"));
 app.use(methodOverride("_method"));
 
-const whitelist = [
-  "http://localhost:3000",
-  "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
-  "https://everyone-s-post.vercel.app/",
-];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
-};
-
-app.use(cors(corsOptions));
-
-// app.use(
-//   cors({
-//     origin: [
-//       "http://localhost:3000",
-//       "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
-//       "https://everyone-s-post.vercel.app/",
-//     ],
-//     credentials: true,
-//     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
-//   })
-// );
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/",
+      "https://everyone-s-post.vercel.app/",
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+  })
+);
 
 app.use("/posts", post);
 app.use("/auth", auth);
