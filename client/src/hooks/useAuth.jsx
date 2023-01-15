@@ -36,7 +36,7 @@ const useAuth = (props) => {
       console.log(res);
     } catch (err) {
       console.log("err", err);
-      // alert(err.response.data.message);
+      alert(err.response.data.message);
     }
   };
   return (
