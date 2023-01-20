@@ -44,24 +44,29 @@ const usePost = (props) => {
     }
   };
   return (
-    <div>
+    <div className="">
       <h2 className="text-4xl mb-5">{props.categoryName}</h2>
-      <form>
-        <section className="mb-3">
-          <label htmlFor="category">Category : </label>
+      <form className="flex flex-col py-2">
+        <section className="flex itmes-center mb-8">
+          <label htmlFor="category" className="py-1 pr-1">
+            Category :{" "}
+          </label>
           <select
             id="category"
             name="category"
             value={inputValue.category}
             onChange={inputValueChangeHandler}
+            className="p-1 border rounded-md shadow"
           >
             <option value="study">study</option>
             <option value="hobby">hobby</option>
             <option value="daily">daily</option>
           </select>
         </section>
-        <section className="mb-5">
-          <label htmlFor="mood">Today's Mood: </label>
+        <section className="flex itmes-center mb-8">
+          <label htmlFor="mood" className="py-1 pr-1">
+            Today's Mood :
+          </label>
           <input
             id="mood"
             name="mood"
@@ -70,11 +75,13 @@ const usePost = (props) => {
             max="5"
             value={inputValue.mood}
             onChange={inputValueChangeHandler}
-            className="p-1"
+            className="p-1 border rounded-md shadow"
           />
         </section>
-        <section className="mb-5">
-          <label htmlFor="date">Date : </label>
+        <section className="flex itmes-center mb-8">
+          <label htmlFor="date" className="py-1 pr-1">
+            Date :
+          </label>
           <input
             id="date"
             name="date"
@@ -82,11 +89,13 @@ const usePost = (props) => {
             placeholder="date"
             value={inputValue.date}
             onChange={inputValueChangeHandler}
-            className="p-1"
+            className="p-1 border rounded-md shadow"
           />
         </section>
-        <section className="mb-5">
-          <label htmlFor="title">Title : </label>
+        <section className="flex itmes-center mb-8">
+          <label htmlFor="title" className="py-1 pr-1">
+            Title :
+          </label>
           <input
             id="title"
             name="title"
@@ -94,18 +103,20 @@ const usePost = (props) => {
             placeholder="title"
             value={inputValue.title}
             onChange={inputValueChangeHandler}
-            className="p-1"
+            className="p-1 border rounded-md shadow"
           />
         </section>
-        <section className="flex mb-5">
-          <label htmlFor="content">Content : </label>
+        <section className="flex itmes-center mb-8">
+          <label htmlFor="content" className="py-1 pr-1">
+            Content :
+          </label>
           <textarea
             id="content"
             name="content"
             placeholder="content"
             value={inputValue.content}
             onChange={inputValueChangeHandler}
-            className="p-1"
+            className="p-1 border rounded-md shadow"
           />
         </section>
         <section className="flex justify-center mb-5">

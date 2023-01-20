@@ -67,8 +67,12 @@ router.post("/login", async (req, res) => {
 
 // logout
 router.post("/logout", async (req, res) => {
-  res.clearCookie("member_id");
-  res.clearCookie("login");
+  const options = {
+    path: "/",
+    domain: ".cloudtype.app",
+  };
+  res.clearCookie("member_id", options);
+  res.clearCookie("login", options);
   res.send({ message: "Thank you !" });
 });
 

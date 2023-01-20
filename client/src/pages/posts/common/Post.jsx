@@ -13,7 +13,7 @@ const Post = ({ post }) => {
   return (
     <ul>
       <Rink path="/posts/read" onClick={postIdHandler}>
-        <li className=" border-2 rounded-md p-5 mb-5 hover:bg-gray-100">
+        <li className="border rounded-md p-5 mb-5 hover:bg-gray-100 shadow">
           <strong>{post.title}</strong> <em>{` - ${post.name} `}</em>
         </li>
       </Rink>

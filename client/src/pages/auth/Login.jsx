@@ -11,7 +11,7 @@ const Login = () => {
   };
 
   const login = useAuth({
-    title: "Login",
+    title: "Log in",
     path: "login",
     check: false,
     onCategory: loginHandler,
