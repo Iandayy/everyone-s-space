@@ -2,9 +2,6 @@ import { Route, Routes } from "react-router-dom";
 
 import Login from "../pages/auth/Login";
 import Join from "../pages/auth/Join";
-import UserInfo from "../pages/mypage/UserInfo";
-import Profile from "../pages/mypage/Profile";
-import Account from "../pages/mypage/Account";
 import Home from "../pages/Home";
 import AllPosts from "../pages/posts/category/All";
 import StudyPosts from "../pages/posts/category/Study";
@@ -19,9 +16,6 @@ const Router = () => {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/join" element={<Join />} />
-      <Route path="/mypage/userInfo" element={<UserInfo />} />
-      <Route path="/mypage/profile" element={<Profile />} />
-      <Route path="/mypage/account" element={<Account />} />
       <Route path="/" element={<Home />} />
       <Route path="/posts/all" element={<AllPosts />} />
       <Route path="/posts/study" element={<StudyPosts />} />
