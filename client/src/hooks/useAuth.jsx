@@ -41,13 +41,13 @@ const useAuth = (props) => {
   };
   return (
     <div className="flex flex-col items-center">
-      <h2 className="text-4xl text-center mb-5">{props.title}</h2>
       <form
         onSubmit={submitHandler}
-        className="flex flex-col items-center p-5 mb-10 border-2 rounded-md w-80"
+        className="flex flex-col w-80 p-6 my-10 border rounded-md shadow-md"
       >
-        <section className="flex flex-col text-center mb-10">
-          <label htmlFor="name" className="text-lg mb-2">
+        <h2 className="text-start text-4xl mb-12">{props.title}</h2>
+        <section className="flex flex-col mb-6">
+          <label htmlFor="name" className="text-lg text-gray-600">
             Name
           </label>
           <input
@@ -57,11 +57,11 @@ const useAuth = (props) => {
             placeholder="Enter Your Name"
             value={inputValue.name}
             onChange={inputValueChangeHandler}
-            className="text-center w-48 p-1 border-2 rounded-md "
+            className="p-2 border rounded-md shadow"
           />
         </section>
-        <section className="flex flex-col text-center mb-10">
-          <label htmlFor="password" className="text-lg mb-2">
+        <section className="flex flex-col mb-8">
+          <label htmlFor="password" className="text-lg text-gray-600">
             Password
           </label>
           <input
@@ -71,12 +71,12 @@ const useAuth = (props) => {
             placeholder="Enter Your Password"
             value={inputValue.password}
             onChange={inputValueChangeHandler}
-            className="text-center w-48 p-1 border-2 rounded-md"
+            className="p-2 border rounded-md shadow"
           />
         </section>
         {props.check && (
-          <section className="flex flex-col text-center mb-10">
-            <label htmlFor="check" className="text-lg mb-2">
+          <section className="flex flex-col mb-8">
+            <label htmlFor="check" className="text-lg mb-2 text-gray-600">
               Check
             </label>
             <input
@@ -84,15 +84,11 @@ const useAuth = (props) => {
               name="check"
               type="password"
               placeholder="Check Your Password"
-              className="text-center w-48 p-1 border-2 rounded-md"
+              className="p-2 border rounded-md shadow"
             />
           </section>
         )}
-        <Button
-          str={props.title}
-          onClick={props.onCategory}
-          className="w-48 mb-5"
-        />
+        <Button str={props.title} onClick={props.onCategory} className="mt-4" />
       </form>
     </div>
   );

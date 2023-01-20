@@ -5,8 +5,8 @@ import NotPost from "../pages/posts/common/NotPost";
 const useCategory = ({ title, posts }) => {
   return (
     <div>
-      <section className="flex justify-between content-center text-center pb-5">
-        <h2 className="text-3xl">{`${title} Posts`}</h2>
+      <section className="flex justify-between text-center pb-5">
+        <h2 className="text-4xl">{`${title} Posts`}</h2>
         <Rink
           path="/posts/create"
           className="bg-blue-800 text-white hover:bg-blue-500 rounded p-2 w-3/12"
