@@ -20,7 +20,11 @@ router
   // new
   .post(async (req, res) => {
     try {
-      const { member_id } = req.cookies;
+      const { member_id } = req.signedCookies;
+      if (member_id === false) {
+        res.status(401).send({ message: "Not valid." });
+        return;
+      }
       if (member_id === undefined) {
         const items = { ...req.body, name: `anonym_${uuidv4().slice(0, 8)}` };
         const newPost = new Post(items);
