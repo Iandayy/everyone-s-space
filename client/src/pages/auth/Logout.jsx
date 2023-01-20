@@ -6,11 +6,7 @@ const Logout = () => {
     alert(res.data.message);
     window.location.replace("/");
   };
-  return (
-    <form>
-      <button onClick={logoutHandler}>Logout</button>
-    </form>
-  );
+  return <button onClick={logoutHandler}>Logout</button>;
 };
 
 export default Logout;
