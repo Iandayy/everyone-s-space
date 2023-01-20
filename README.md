@@ -1,6 +1,6 @@
 # 💡 Everyone's Post :)
 
-**Everyone's Post** 는 모두가 글을 작성할 수 있는 웹서비스입니다.
+**[Everyone's Post](https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/)** 는 모두가 글을 작성할 수 있는 웹서비스입니다.
 
 <br />
 
@@ -27,7 +27,7 @@
 ## 📂 실행방법
 
 ```sh
-git clone https://github.com/Iandayy/everyone-s-post
+git clone -b local --single-branch https://github.com/Iandayy/everyone-s-post
 
 **Client**
 
@@ -39,5 +39,5 @@ npm start
 
 cd server
 npm install
-npm run dev
+npm start
 ```
