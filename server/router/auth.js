@@ -67,8 +67,8 @@ router.post("/login", async (req, res) => {
 
 // logout
 router.post("/logout", async (req, res) => {
-  res.clearCookie("member_id");
-  res.clearCookie("login");
+  res.clearCookie("member_id", { path: "/" });
+  res.clearCookie("login", { path: "/" });
   res.send({ message: "Thank you !" });
 });
 
