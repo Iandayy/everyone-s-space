@@ -10,6 +10,10 @@ const Read = () => {
   const [cookies] = useCookies();
 
   const anonymPost = post.member_id === undefined;
+  const userPost =
+    !anonymPost &&
+    cookies.member_id &&
+    cookies.member_id.includes(post.member_id);
 
   return (
     <div>
@@ -20,7 +24,7 @@ const Read = () => {
         <strong>{post.name} </strong>
         <em>{post.date}</em>
       </section>
-      {!anonymPost && post.member_id === cookies.member_id && (
+      {userPost && (
         <section className="flex justify-center">
           <Rink
             path="/posts/update"

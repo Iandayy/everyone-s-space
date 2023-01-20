@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
-
-const { v5: uuidv5 } = require("uuid");
+const bcrypt = require("bcrypt");
 
 const User = require("../models/user");
 
 // join
 router.post("/join", async (req, res) => {
   try {
-    const findUser = await User.findOne({ name: req.body.name });
+    const { name, password } = req.body;
+    const findUser = await User.findOne({ name });
 
     if (findUser !== null) {
       res
@@ -16,12 +16,10 @@ router.post("/join", async (req, res) => {
         .send({ message: "A name that exists. Please write another name." });
       return;
     }
+    const hash = await bcrypt.hash(password, 12);
     const items = {
-      name: req.body.name,
-      password: uuidv5(
-        req.body.password,
-        "b2e670b9-dcb9-400a-964e-a3899653725d"
-      ),
+      name,
+      password: hash,
     };
     const newJoin = new User(items);
     await newJoin.save();
@@ -34,29 +32,33 @@ router.post("/join", async (req, res) => {
 // login
 router.post("/login", async (req, res) => {
   try {
-    const user = await User.findOne({ name: req.body.name });
+    const { name, password } = req.body;
+
+    const user = await User.findOne({ name });
+
     if (user === null) {
       res.status(401).send({ message: "Please check your name again." });
       return;
     }
-    const password = uuidv5(
-      req.body.password,
-      "b2e670b9-dcb9-400a-964e-a3899653725d"
-    );
-    if (user.password !== password) {
-      res.status(401).send({ message: "Please check your password again." });
-      return;
-    }
+
+    const validPassword = await bcrypt.compare(password, user.password);
+
     const options = {
       sameSite: "None",
       secure: true,
       maxAge: 10 * 60 * 1000,
       path: "/",
+      domain: ".cloudtype.app",
+      signed: true,
     };
-    if (user.name === req.body.name && user.password === password) {
+
+    if (validPassword) {
       res.cookie("member_id", `${user._id}`, options);
       res.cookie("login", "true", options);
       res.send({ message: "Welcome to Everyone's Post !" });
+    } else {
+      res.status(401).send({ message: "Please check your password again." });
+      return;
     }
   } catch (err) {
     console.log("err", err);
