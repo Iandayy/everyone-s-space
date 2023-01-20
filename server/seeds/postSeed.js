@@ -48,6 +48,10 @@ const seedPosts = [
 //   .then((res) => console.log(res))
 //   .catch((err) => console.log(err));
 
-Post.deleteMany()
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+// Post.deleteMany()
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));
+
+// Post.findByIdAndUpdate("63c8f88b0c105af097342a70", { name: "rose" })
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));

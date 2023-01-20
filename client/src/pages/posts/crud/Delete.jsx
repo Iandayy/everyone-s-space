@@ -8,10 +8,14 @@ const Delete = ({ id }) => {
   const setCategory = useSetRecoilState(categoryState);
 
   const deleteHandler = async () => {
-    const res = await instance.delete(`/posts/${id}`);
-    alert(res.data.message);
-    setCategory("all");
-    window.location.replace("/posts/all");
+    try {
+      const res = await instance.delete(`/posts/${id}`);
+      alert(res.data.message);
+      setCategory("all");
+      window.location.replace("/posts/all");
+    } catch (err) {
+      console.log("err", err);
+    }
   };
 
   return (

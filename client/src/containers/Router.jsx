@@ -1,4 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 import Login from "../pages/auth/Login";
 import Join from "../pages/auth/Join";
@@ -15,6 +17,15 @@ import ReadPost from "../pages/posts/crud/Read";
 import UpdatePost from "../pages/posts/crud/Update";
 
 const Router = () => {
+  const [cookies] = useCookies();
+  const path = useLocation().pathname;
+
+  useEffect(() => {
+    if (Object.keys(cookies).length === 0 && path.includes("/mypage")) {
+      window.location.replace("/");
+    }
+  }, [cookies, path]);
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />

@@ -80,8 +80,9 @@ router
   .delete(async (req, res) => {
     try {
       const { id } = req.params;
-      await Post.findByIdAndDelete(id);
-      res.send({ message: "Delete your post !" });
+      await Post.findByIdAndDelete(id, {
+        runValidators: true,
+      });
     } catch (err) {
       console.log("err", err);
     }

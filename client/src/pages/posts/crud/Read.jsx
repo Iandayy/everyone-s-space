@@ -9,11 +9,16 @@ const Read = () => {
   const post = useRecoilValue(postReadState);
   const [cookies] = useCookies();
 
-  const anonymPost = post.member_id === undefined;
+  if (post === null) {
+    alert("Delete your post !");
+    window.location.replace("/posts/all");
+    return;
+  }
+
+  const anonymPost = !post.member_id;
+
   const userPost =
-    !anonymPost &&
-    cookies.member_id &&
-    cookies.member_id.includes(post.member_id);
+    cookies.member_id && cookies.member_id.includes(post.member_id);
 
   return (
     <div>

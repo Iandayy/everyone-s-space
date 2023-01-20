@@ -7,6 +7,8 @@ import Button from "../../components/Button";
 const Profile = () => {
   const [cookies] = useCookies();
 
+  const memberID = cookies.member_id.slice(2, 26);
+
   const [inputValue, setInputValue] = useState({
     name: "",
     password: "",
@@ -27,9 +29,13 @@ const Profile = () => {
       password: inputValue.password,
     };
 
-    await instance.get(`/userInfo/${cookies.member_id}`, { data: items });
-
-    alert("Your information has been changed.");
+    try {
+      const res = await instance.patch(`/mypage/${memberID}`, items);
+      alert(res.data.message);
+    } catch (err) {
+      console.log("err", err);
+      alert(err.response.data.message);
+    }
   };
 
   return (
