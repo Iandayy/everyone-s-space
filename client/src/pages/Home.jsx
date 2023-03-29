@@ -1,14 +1,14 @@
 import { useSetRecoilState } from "recoil";
 import { categoryState } from "../recoil/atom/categoryState";
 import Rink from "../components/Rink";
-import mailBox3 from "../images/mailbox3.jpg";
+import mailBox from "../images/mailbox.jpg";
 
 const Home = () => {
   const setCategory = useSetRecoilState(categoryState);
 
   return (
     <article className="flex flex-col items-center">
-      <img src={mailBox3} alt="mailBox" className="my-2 w-4/5" />
+      <img src={mailBox} alt="mailBox" className="my-2 w-4/5" />
       <Rink
         path="/posts/all"
         onClick={() => setCategory("all")}
