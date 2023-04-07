@@ -1,4 +1,4 @@
-import Rink from "../components/Rink";
+import { Link } from "react-router-dom";
 
 import User from "./User";
 
@@ -6,11 +6,11 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center m-5 pb-5 text-blue-800">
       <article className="text-4xl sm:text-2xl s:text-xl">
-        <Rink path="/" className="cursor-pointer">
+        <Link to="/" className="cursor-pointer">
           <em className="border-solid border-blue-800 border-2 rounded-3xl font-bold p-2 shadow-md">
-            everyone's post
+            Everyone's Post
           </em>
-        </Rink>
+        </Link>
       </article>
       <User />
     </header>

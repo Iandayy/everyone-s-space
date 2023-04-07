@@ -11,21 +11,25 @@ import CreatePost from "../pages/posts/crud/Create";
 import ReadPost from "../pages/posts/crud/Read";
 import UpdatePost from "../pages/posts/crud/Update";
 
+const ROUTES = [
+  { path: "/", component: <Home /> },
+  { path: "/login", component: <Login /> },
+  { path: "/join", component: <Join /> },
+  { path: "/posts/all", component: <AllPosts /> },
+  { path: "/posts/study", component: <StudyPosts /> },
+  { path: "/posts/hobby", component: <HobbyPosts /> },
+  { path: "/posts/daily", component: <DailyPosts /> },
+  { path: "/posts/create", component: <CreatePost /> },
+  { path: "/posts/read", component: <ReadPost /> },
+  { path: "/posts/update", component: <UpdatePost /> },
+];
+
 const Router = () => {
-  return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/join" element={<Join />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/posts/all" element={<AllPosts />} />
-      <Route path="/posts/study" element={<StudyPosts />} />
-      <Route path="/posts/hobby" element={<HobbyPosts />} />
-      <Route path="/posts/daily" element={<DailyPosts />} />
-      <Route path="/posts/create" element={<CreatePost />} />
-      <Route path="/posts/read" element={<ReadPost />} />
-      <Route path="/posts/update" element={<UpdatePost />} />
-    </Routes>
-  );
+  const routes = ROUTES.map((route) => (
+    <Route key={route.path} path={route.path} element={route.component} />
+  ));
+
+  return <Routes>{routes}</Routes>;
 };
 
 export default Router;

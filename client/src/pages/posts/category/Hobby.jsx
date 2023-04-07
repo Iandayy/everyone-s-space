@@ -1,12 +1,15 @@
 import { useRecoilValue } from "recoil";
-import { postCategoryState } from "../../../recoil/selector/postCategoryState";
+
+import { postsAllState } from "../../../recoil/selector/postsAllState";
 import useCategory from "../../../hooks/useCategory";
 
-const Hobby = () => {
-  const posts = useRecoilValue(postCategoryState);
-  const HobbyCategory = useCategory({ title: "Hobby", posts });
+import PostList from "../common/PostList";
 
-  return <>{HobbyCategory}</>;
+const Hobby = () => {
+  const posts = useRecoilValue(postsAllState);
+  const filteredPosts = useCategory("Hobby", posts);
+
+  return <PostList title="Hobby" posts={filteredPosts} />;
 };
 
 export default Hobby;

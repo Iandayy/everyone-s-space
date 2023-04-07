@@ -1,27 +1,28 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { useCookies } from "react-cookie";
 
-import Rink from "../components/Rink";
+import { loginState } from "../recoil/atom/loginState";
+import { Link } from "react-router-dom";
 import Logout from "../pages/auth/Logout";
 
 const User = () => {
   const [cookies] = useCookies();
-
-  const [isLogin, setIsLogin] = useState(false);
+  const isLogin = useRecoilValue(loginState);
+  const setIsLogin = useSetRecoilState(loginState);
 
   useEffect(() => {
-    if (cookies.login === undefined) setIsLogin(false);
-    else setIsLogin(true);
-  }, [cookies]);
+    setIsLogin(!!cookies.login);
+  }, [cookies, setIsLogin]);
 
   return (
     <>
       {!isLogin && (
         <article className="text-xl sm:text-lg s:text-base">
-          <Rink path="/login" className="mr-2">
+          <Link to="/login" className="mr-2">
             Login
-          </Rink>
-          <Rink path="/join">Join</Rink>
+          </Link>
+          <Link to="/join">Join</Link>
         </article>
       )}
       {isLogin && (
