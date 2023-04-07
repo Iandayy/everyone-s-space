@@ -1,22 +1,28 @@
-import { useSetRecoilState } from "recoil";
 import useAuth from "../../hooks/useAuth";
-
-import { categoryState } from "../../recoil/atom/categoryState";
+import AuthForm from "./AuthForm";
 
 const Login = () => {
-  const setCategory = useSetRecoilState(categoryState);
+  const { inputValue, inputValueChangeHandler, submitHandler } = useAuth();
 
-  const loginHandler = () => {
-    setCategory("all");
+  const onSubmit = (e) => {
+    e.preventDefault();
+    submitHandler(
+      "login",
+      () => {
+        window.location.replace("/posts/all");
+      },
+      () => {}
+    );
   };
 
-  const login = useAuth({
-    title: "Log in",
-    path: "login",
-    check: false,
-    onCategory: loginHandler,
-  });
-  return <>{login}</>;
+  return (
+    <AuthForm
+      currentPage="Login"
+      inputValue={inputValue}
+      onInputChange={inputValueChangeHandler}
+      onSubmit={onSubmit}
+    />
+  );
 };
 
 export default Login;

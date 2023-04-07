@@ -1,12 +1,15 @@
 import { useRecoilValue } from "recoil";
-import { postCategoryState } from "../../../recoil/selector/postCategoryState";
+
+import { postsAllState } from "../../../recoil/selector/postsAllState";
 import useCategory from "../../../hooks/useCategory";
 
-const Study = () => {
-  const posts = useRecoilValue(postCategoryState);
-  const StudyCategory = useCategory({ title: "Study", posts });
+import PostList from "../common/PostList";
 
-  return <>{StudyCategory}</>;
+const Study = () => {
+  const posts = useRecoilValue(postsAllState);
+  const filteredPosts = useCategory("Study", posts);
+
+  return <PostList title="Study" posts={filteredPosts} />;
 };
 
 export default Study;

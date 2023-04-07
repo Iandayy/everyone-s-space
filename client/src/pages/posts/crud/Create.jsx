@@ -1,16 +1,18 @@
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { categoryState } from "../../../recoil/atom/categoryState";
-import usePost from "../../../hooks/usePost";
+
 import instance from "../../../service/request";
+import usePost from "../../../hooks/usePost";
+import PostForm from "../common/PostForm";
 
 const Create = () => {
   const today = new Date().toISOString();
   const date = today.slice(0, 10);
 
-  const setCategory = useSetRecoilState(categoryState);
+  const [currentCategory, setCurrentCategory] = useRecoilState(categoryState);
 
-  const createPost = usePost({
-    categoryName: "All Posts",
+  const { inputValue, category, onInputChange, onSubmit, disable } = usePost({
+    categoryName: `${currentCategory} Posts`,
     mood: 1,
     date: date,
     title: "",
@@ -19,11 +21,19 @@ const Create = () => {
     categoryNav: "all",
     currentNav: "/posts/all",
     postPath: "/posts",
-    setCategory,
+    setCurrentCategory,
     method: instance.post,
   });
 
-  return <>{createPost}</>;
+  return (
+    <PostForm
+      inputValue={inputValue}
+      category={category}
+      onInputChange={onInputChange}
+      onSubmit={onSubmit}
+      disable={disable}
+    />
+  );
 };
 
 export default Create;

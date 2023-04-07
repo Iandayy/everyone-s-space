@@ -1,12 +1,15 @@
 import { useRecoilValue } from "recoil";
-import { postCategoryState } from "../../../recoil/selector/postCategoryState";
+
+import { postsAllState } from "../../../recoil/selector/postsAllState";
 import useCategory from "../../../hooks/useCategory";
 
-const Daily = () => {
-  const posts = useRecoilValue(postCategoryState);
-  const DailyCategory = useCategory({ title: "Daily", posts });
+import PostList from "../common/PostList";
 
-  return <>{DailyCategory}</>;
+const Daily = () => {
+  const posts = useRecoilValue(postsAllState);
+  const filteredPosts = useCategory("Daily", posts);
+
+  return <PostList title="Daily" posts={filteredPosts} />;
 };
 
 export default Daily;

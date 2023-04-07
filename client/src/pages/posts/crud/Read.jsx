@@ -25,9 +25,9 @@ const Read = () => {
     <div>
       <h2 className="text-2xl pb-5">{post.title}</h2>
       <p className="text-xl pb-5">{post.content}</p>
-      <p className="pb-5">today's mood : {post.mood}</p>
+      <p className="pb-5">Today's mood : {post.mood}</p>
       <section className="pb-5">
-        <strong>{post.name} </strong>
+        <strong>{post.name}</strong>
         <em>{post.date}</em>
       </section>
       {userPost && (

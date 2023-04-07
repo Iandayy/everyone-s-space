@@ -1,9 +1,5 @@
 const NotPost = () => {
-  return (
-    <section className="">
-      <p>No posts found. please write.</p>
-    </section>
-  );
+  return <p>No posts found. Please write.</p>;
 };
 
 export default NotPost;
