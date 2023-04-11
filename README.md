@@ -27,7 +27,7 @@
 ## 📂 실행방법
 
 ```sh
-git clone -b dev --single-branch git@github.com:Iandayy/everyone-s-post
+git clone -b dev --single-branch git@github.com:Iandayy/everyone-s-post.git
 
 **Client**
 
