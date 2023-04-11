@@ -10,8 +10,6 @@ const useAuth = () => {
 
   const [isDisabled, setIsDisabled] = useState(true);
 
-  console.log(isDisabled);
-
   useEffect(() => {
     if (inputValue.name !== "" && inputValue.password !== "") {
       if (window.location.pathname === "/join") {
