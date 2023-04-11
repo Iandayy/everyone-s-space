@@ -1,6 +1,12 @@
 import Button from "../../components/Button";
 
-const AuthForm = ({ currentPage, inputValue, onInputChange, onSubmit }) => {
+const AuthForm = ({
+  currentPage,
+  inputValue,
+  onInputChange,
+  onSubmit,
+  disabled,
+}) => {
   return (
     <div className="flex flex-col items-center">
       <form
@@ -52,7 +58,7 @@ const AuthForm = ({ currentPage, inputValue, onInputChange, onSubmit }) => {
             />
           </section>
         )}
-        <Button str={currentPage} className="mt-4" />
+        <Button str={currentPage} className="mt-4" disabled={disabled} />
       </form>
     </div>
   );

@@ -6,7 +6,7 @@ const PostForm = ({
   category,
   onInputChange,
   onSubmit,
-  disable,
+  disabled,
 }) => {
   return (
     <>
@@ -23,9 +23,9 @@ const PostForm = ({
             onChange={onInputChange}
             className="p-1 border rounded-md shadow"
           >
-            <option value="study">study</option>
-            <option value="hobby">hobby</option>
-            <option value="daily">daily</option>
+            <option value="universe">universe</option>
+            <option value="alien">alien</option>
+            <option value="mystery">mystery</option>
           </select>
         </section>
         <section className="flex itmes-center mb-8">
@@ -87,16 +87,15 @@ const PostForm = ({
         <section className="flex justify-center mb-5">
           <Link
             to={`/posts/${category}`}
-            className="bg-blue-800 text-white hover:bg-blue-500 rounded p-2"
+            className="bg-blue-800 text-white rounded p-2 m-1 outline-blue-800 outline hover:outline-offset-2"
           >
             Cancel
           </Link>
           <Button
             str="Submit"
+            disabled={disabled}
             onClick={onSubmit}
-            className={
-              !disable && "bg-gray-400 hover:bg-gray-400 cursor-default"
-            }
+            className={`m-1`}
           />
         </section>
       </form>

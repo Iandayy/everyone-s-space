@@ -2,7 +2,8 @@ import useAuth from "../../hooks/useAuth";
 import AuthForm from "./AuthForm";
 
 const Login = () => {
-  const { inputValue, inputValueChangeHandler, submitHandler } = useAuth();
+  const { inputValue, inputValueChangeHandler, submitHandler, isDisabled } =
+    useAuth();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +22,7 @@ const Login = () => {
       inputValue={inputValue}
       onInputChange={inputValueChangeHandler}
       onSubmit={onSubmit}
+      disabled={isDisabled}
     />
   );
 };

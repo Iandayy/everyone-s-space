@@ -6,7 +6,7 @@ const useNav = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const postCategories = ["all", "study", "hobby", "daily"];
+    const postCategories = ["all", "universe", "alien", "mystery"];
     const mypageCategories = ["userInfo", "profile", "account"];
 
     if (location.pathname.startsWith("/posts")) {
