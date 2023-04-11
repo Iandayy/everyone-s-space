@@ -44,7 +44,11 @@ router.post("/login", async (req, res) => {
     const validPassword = await bcrypt.compare(password, user.password);
 
     const options = {
+      sameSite: "None",
+      secure: true,
       maxAge: 10 * 60 * 1000,
+      path: "/",
+      domain: ".cloudtype.app",
       signed: true,
     };
 
@@ -63,8 +67,12 @@ router.post("/login", async (req, res) => {
 
 // logout
 router.post("/logout", async (req, res) => {
-  res.clearCookie("member_id");
-  res.clearCookie("login");
+  const options = {
+    path: "/",
+    domain: ".cloudtype.app",
+  };
+  res.clearCookie("member_id", options);
+  res.clearCookie("login", options);
   res.send({ message: "Thank you !" });
 });
 
