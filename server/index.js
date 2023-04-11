@@ -1,8 +1,10 @@
 require("dotenv").config();
 
+const MONGO_URI = "mongodb://svc.gksl2.cloudtype.app:32176/";
+const PORT = 8080;
+
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 8080;
 const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
@@ -10,7 +12,7 @@ const post = require("./router/post");
 const auth = require("./router/auth");
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(MONGO_URI)
   .then(() => console.log("Open"))
   .catch((err) => console.log("Error", err));
 
@@ -36,6 +38,6 @@ app.get("/", (req, res) => {
   res.send("ok");
 });
 
-app.listen(port, (req, res) => {
+app.listen(PORT, (req, res) => {
   console.log("App is listening on port 8080");
 });
