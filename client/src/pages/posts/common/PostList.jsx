@@ -4,12 +4,12 @@ import NotPost from "./NotPost";
 
 const PostList = ({ title, posts }) => {
   return (
-    <div>
+    <>
       <section className="flex justify-between text-center pb-5">
-        <h2 className="text-4xl">{`${title} Posts`}</h2>
+        <h2 className="text-4xl s:text-3xl">{`${title} Posts`}</h2>
         <Link
           to="/posts/create"
-          className="bg-blue-800 text-white hover:bg-blue-500 rounded p-2 w-3/12"
+          className="bg-blue-800 text-white s:text-xs rounded p-2 w-1/4 outline-blue-800 outline hover:outline-offset-4"
         >
           Add Post
         </Link>
@@ -22,7 +22,7 @@ const PostList = ({ title, posts }) => {
           ))}
         </section>
       )}
-    </div>
+    </>
   );
 };
 

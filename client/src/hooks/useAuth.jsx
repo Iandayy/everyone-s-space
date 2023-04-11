@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import instance from "../service/request";
 
 const useAuth = () => {
@@ -7,6 +7,19 @@ const useAuth = () => {
     password: "",
     check: "",
   });
+
+  const [isDisabled, setIsDisabled] = useState(true);
+
+  console.log(isDisabled);
+
+  useEffect(() => {
+    if (inputValue.name !== "" && inputValue.password !== "") {
+      if (window.location.pathname === "/join") {
+        if (inputValue.check !== "") setIsDisabled(() => false);
+        else setIsDisabled(() => true);
+      } else setIsDisabled(() => false);
+    } else setIsDisabled(() => true);
+  }, [inputValue.name, inputValue.password, inputValue.check]);
 
   const inputValueChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -17,11 +30,9 @@ const useAuth = () => {
   };
 
   const submitHandler = async (path, successCallback, errorCallback) => {
-    if (inputValue.name.length === 0) {
-      alert("Enter your name");
-      return;
-    }
-    if (path === "Join" && inputValue.password !== inputValue.check) {
+    if (isDisabled) return;
+
+    if (path === "join" && inputValue.password !== inputValue.check) {
       alert("Check your password");
       return;
     }
@@ -31,7 +42,7 @@ const useAuth = () => {
     try {
       const res = await instance.post(`/auth/${path}`, items);
       alert(res.data.message);
-      successCallback(res);
+      successCallback();
       setInputValue({
         name: "",
         password: "",
@@ -47,6 +58,7 @@ const useAuth = () => {
     inputValue,
     inputValueChangeHandler,
     submitHandler,
+    isDisabled,
   };
 };
 

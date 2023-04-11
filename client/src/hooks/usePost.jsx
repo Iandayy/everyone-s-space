@@ -13,12 +13,12 @@ const usePost = (props) => {
     content: props.content,
   });
 
-  const [disable, setDisable] = useState(false);
+  const [isDisable, setIsDisable] = useState(true);
 
   useEffect(() => {
     if (inputValue.title !== "" && inputValue.content !== "") {
-      setDisable(() => true);
-    } else setDisable(() => false);
+      setIsDisable(() => false);
+    } else setIsDisable(() => true);
   }, [inputValue.title, inputValue.content]);
 
   const onInputChange = (e) => {
@@ -32,7 +32,7 @@ const usePost = (props) => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (inputValue.title === "" || inputValue.content === "") return;
+    if (isDisable) return;
 
     try {
       const res = await props.method(props.postPath, inputValue);
@@ -54,7 +54,7 @@ const usePost = (props) => {
     category,
     onInputChange,
     onSubmit,
-    disable,
+    isDisable,
   };
 };
 

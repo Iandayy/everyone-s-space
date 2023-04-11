@@ -20,7 +20,7 @@ const postSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ["study", "hobby", "daily"],
+    enum: ["universe", "alien", "mystery"],
   },
   member_id: {
     type: String,

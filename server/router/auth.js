@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
 
     const validPassword = await bcrypt.compare(password, user.password);
 
-const options = {
+    const options = {
       sameSite: "None",
       secure: true,
       maxAge: 10 * 60 * 1000,

@@ -11,13 +11,13 @@ const Create = () => {
 
   const [currentCategory, setCurrentCategory] = useRecoilState(categoryState);
 
-  const { inputValue, category, onInputChange, onSubmit, disable } = usePost({
+  const { inputValue, category, onInputChange, onSubmit, isDisable } = usePost({
     categoryName: `${currentCategory} Posts`,
     mood: 1,
     date: date,
     title: "",
     content: "",
-    category: "study",
+    category: "universe",
     categoryNav: "all",
     currentNav: "/posts/all",
     postPath: "/posts",
@@ -31,7 +31,7 @@ const Create = () => {
       category={category}
       onInputChange={onInputChange}
       onSubmit={onSubmit}
-      disable={disable}
+      disabled={isDisable}
     />
   );
 };
