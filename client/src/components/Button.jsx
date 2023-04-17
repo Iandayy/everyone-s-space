@@ -7,7 +7,6 @@ const Button = (props) => {
           : "bg-blue-800 outline outline-blue-800 hover:outline-offset-2"
       } m-1 text-white rounded p-2 shadow-lg`}
       onClick={props.onClick}
-      disabled={props.disabled}
     >
       {props.str}
     </button>

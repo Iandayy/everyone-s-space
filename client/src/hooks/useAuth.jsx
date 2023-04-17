@@ -8,15 +8,15 @@ const useAuth = () => {
     check: "",
   });
 
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
     if (inputValue.name !== "" && inputValue.password !== "") {
       if (window.location.pathname === "/join") {
-        if (inputValue.check !== "") setIsDisabled(() => false);
-        else setIsDisabled(() => true);
-      } else setIsDisabled(() => false);
-    } else setIsDisabled(() => true);
+        if (inputValue.check !== "") setIsValid(() => true);
+        else setIsValid(() => false);
+      } else setIsValid(() => true);
+    } else setIsValid(() => false);
   }, [inputValue.name, inputValue.password, inputValue.check]);
 
   const inputValueChangeHandler = (e) => {
@@ -28,7 +28,7 @@ const useAuth = () => {
   };
 
   const submitHandler = async (path, successCallback, errorCallback) => {
-    if (isDisabled) return;
+    if (!isValid) return;
 
     if (path === "join" && inputValue.password !== inputValue.check) {
       alert("Check your password");
@@ -40,12 +40,12 @@ const useAuth = () => {
     try {
       const res = await instance.post(`/auth/${path}`, items);
       alert(res.data.message);
-      successCallback();
-      setInputValue({
+      setInputValue(() => ({
         name: "",
         password: "",
         check: "",
-      });
+      }));
+      successCallback();
     } catch (err) {
       alert(err.response.data.message);
       errorCallback(err);
@@ -56,7 +56,7 @@ const useAuth = () => {
     inputValue,
     inputValueChangeHandler,
     submitHandler,
-    isDisabled,
+    isValid,
   };
 };
 

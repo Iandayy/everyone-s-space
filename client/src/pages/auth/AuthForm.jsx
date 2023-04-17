@@ -5,7 +5,7 @@ const AuthForm = ({
   inputValue,
   onInputChange,
   onSubmit,
-  disabled,
+  isValid,
 }) => {
   return (
     <div className="flex flex-col items-center">
@@ -58,7 +58,7 @@ const AuthForm = ({
             />
           </section>
         )}
-        <Button str={currentPage} className="mt-4" disabled={disabled} />
+        <Button str={currentPage} className="mt-4" disabled={!isValid} />
       </form>
     </div>
   );
