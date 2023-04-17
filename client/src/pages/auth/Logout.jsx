@@ -10,7 +10,11 @@ const Logout = () => {
       console.error("Logout failed", error);
     }
   };
-  return <button onClick={logoutHandler}>Logout</button>;
+  return (
+    <button onClick={logoutHandler} className="hover:font-semibold">
+      Logout
+    </button>
+  );
 };
 
 export default Logout;

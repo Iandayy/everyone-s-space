@@ -1,6 +1,5 @@
 import { useSetRecoilState } from "recoil";
 import { categoryState } from "../recoil/atom/categoryState";
-import nightSky from "../images/nightSky.jpg";
 
 import Button from "../components/Button";
 

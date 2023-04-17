@@ -95,7 +95,7 @@ const PostForm = ({
             str="Submit"
             disabled={disabled}
             onClick={onSubmit}
-            className={`m-1`}
+            className="m-1"
           />
         </section>
       </form>
