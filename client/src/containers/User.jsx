@@ -19,10 +19,12 @@ const User = () => {
     <>
       {!isLogin && (
         <article className="text-xl sm:text-lg s:text-base">
-          <Link to="/login" className="mr-2">
+          <Link to="/login" className="mr-2 hover:font-semibold">
             Login
           </Link>
-          <Link to="/join">Join</Link>
+          <Link to="/join" className="hover:font-semibold">
+            Join
+          </Link>
         </article>
       )}
       {isLogin && (

@@ -9,6 +9,9 @@ module.exports = {
         md: { min: "768px", max: "1023px" },
         lg: { min: "1023px" },
       },
+      backgroundImage: {
+        nightSky: "url('/src/images/nightSky.jpg')",
+      },
     },
   },
   plugins: [],

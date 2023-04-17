@@ -13,7 +13,7 @@ const Post = ({ post }) => {
   return (
     <ul>
       <Link to="/posts/read" onClick={postIdHandler}>
-        <li className="border rounded-md p-5 mb-5 hover:bg-gray-100 shadow">
+        <li className="rounded-md p-5 mb-5 hover:bg-gray-50 shadow">
           <strong>{post.title}</strong> <em>{` - ${post.name} `}</em>
         </li>
       </Link>

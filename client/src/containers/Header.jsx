@@ -9,7 +9,7 @@ const Header = () => {
         to="/"
         className="cursor-pointer text-4xl sm:text-2xl s:text-xl my-2"
       >
-        <em className="border-solid border-blue-800 border-2 rounded-3xl font-bold p-2 shadow-md">
+        <em className="border-solid border-blue-800 border-2 rounded-3xl font-bold p-2 shadow-md hover:shadow-2xl">
           Everyone' Space
         </em>
       </Link>

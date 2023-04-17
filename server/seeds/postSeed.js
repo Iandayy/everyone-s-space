@@ -16,7 +16,7 @@ const seedPosts = [
     content: "I am going to library.",
     date: "1981-10-26",
     mood: 1,
-    category: "study",
+    category: "alien",
   },
   {
     name: "mark",
@@ -24,7 +24,7 @@ const seedPosts = [
     content: "Volleyball is fun.",
     date: "2022-11-12",
     mood: 4,
-    category: "hobby",
+    category: "alien",
   },
   {
     name: "jack",
@@ -32,7 +32,7 @@ const seedPosts = [
     content: "I love you.",
     date: "1981-10-26",
     mood: 5,
-    category: "daily",
+    category: "alien",
   },
   {
     name: "rose",
@@ -40,7 +40,7 @@ const seedPosts = [
     content: "Me too.",
     date: "1981-10-26",
     mood: 5,
-    category: "daily",
+    category: "alien",
   },
 ];
 
@@ -48,6 +48,6 @@ const seedPosts = [
 //   .then((res) => console.log(res))
 //   .catch((err) => console.log(err));
 
-Post.deleteMany()
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+// Post.deleteMany()
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));

@@ -9,7 +9,7 @@ const PostList = ({ title, posts }) => {
         <h2 className="text-4xl s:text-3xl">{`${title} Posts`}</h2>
         <Link
           to="/posts/create"
-          className="bg-blue-800 text-white s:text-xs rounded p-2 w-1/4 outline-blue-800 outline hover:outline-offset-4"
+          className="bg-blue-800 text-white s:text-xs rounded p-2 w-1/4 outline-blue-800 outline hover:outline-offset-2"
         >
           Add Post
         </Link>
