@@ -10,7 +10,6 @@ const Read = () => {
   const [cookies] = useCookies();
 
   if (post === null) {
-    alert("Delete your post !");
     window.location.replace("/posts/all");
     return;
   }

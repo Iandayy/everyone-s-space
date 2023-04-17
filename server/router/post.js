@@ -53,6 +53,20 @@ router.get("/search", async (req, res) => {
 });
 
 router
+  .route("/page")
+  // all
+  .get(async (req, res) => {
+    try {
+      const { page } = req.params;
+      console.log(page);
+      const posts = await Post.find({});
+      res.json(posts.slice(0, page));
+    } catch (err) {
+      console.log("err", err);
+    }
+  });
+
+router
   .route("/:id")
   // show
   .get(async (req, res) => {
@@ -81,7 +95,6 @@ router
     try {
       const { id } = req.params;
       await Post.findByIdAndDelete(id);
-      res.send({ message: "Delete your post !" });
     } catch (err) {
       console.log("err", err);
     }

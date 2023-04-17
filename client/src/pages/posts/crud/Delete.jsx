@@ -8,14 +8,14 @@ const Delete = ({ id }) => {
   const setCategory = useSetRecoilState(categoryState);
 
   const deleteHandler = async () => {
-    try {
-      const res = await instance.delete(`/posts/${id}`);
-      alert(res.data.message);
-      setCategory("all");
-      window.location.replace("/posts/all");
-    } catch (err) {
-      console.error("Failed to delete post:", err);
-    }
+    if (window.confirm("Are you sure you want to delete the post?")) {
+      try {
+        await instance.delete(`/posts/${id}`);
+        setCategory("all");
+      } catch (err) {
+        console.error("Failed to delete post:", err);
+      }
+    } else return;
   };
 
   return (
