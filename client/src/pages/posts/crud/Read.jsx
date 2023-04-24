@@ -1,9 +1,8 @@
-import { useRecoilValue } from "recoil";
 import { useCookies } from "react-cookie";
-
+import { useRecoilValue } from "recoil";
 import { postReadState } from "../../../recoil/selector/postReadState";
-import Delete from "./Delete";
 import Button from "../../../components/Button";
+import Delete from "./Delete";
 
 const Read = () => {
   const post = useRecoilValue(postReadState);

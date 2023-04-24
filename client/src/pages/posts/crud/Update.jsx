@@ -1,9 +1,8 @@
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { postReadState } from "../../../recoil/selector/postReadState";
 import { categoryState } from "../../../recoil/atom/categoryState";
-
-import usePost from "../../../hooks/usePost";
 import instance from "../../../service/request";
+import usePost from "../../../hooks/usePost";
 import PostForm from "../common/PostForm";
 
 const Update = () => {

@@ -1,8 +1,6 @@
 import { useRecoilValue } from "recoil";
-
 import { postsAllState } from "../../../recoil/selector/postsAllState";
 import useCategory from "../../../hooks/useCategory";
-
 import PostList from "../common/PostList";
 
 const Mystery = () => {
