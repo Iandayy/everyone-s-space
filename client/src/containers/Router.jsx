@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-
 import Login from "../pages/auth/Login";
 import Join from "../pages/auth/Join";
 import Home from "../pages/Home";

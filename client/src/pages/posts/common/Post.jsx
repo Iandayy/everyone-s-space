@@ -1,7 +1,6 @@
-import { useSetRecoilState } from "recoil";
-
-import { postIdState } from "../../../recoil/atom/postIdState";
 import { Link } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { postIdState } from "../../../recoil/atom/postIdState";
 
 const Post = ({ post }) => {
   const setPostId = useSetRecoilState(postIdState);

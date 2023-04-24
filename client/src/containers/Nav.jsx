@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
-
-import useNav from "../hooks/useNav";
 import { categoryState } from "../recoil/atom/categoryState";
+import useNav from "../hooks/useNav";
 
 const Nav = () => {
   const { categories, to } = useNav();
