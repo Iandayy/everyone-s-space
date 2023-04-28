@@ -22,8 +22,8 @@ const User = () => {
       {!isLogin && (
         <article
           className={`${
-            homePath && "text-slate-50"
-          } flex items-center text-xl sm:text-lg s:text-base text-blue-800`}
+            homePath ? "text-slate-50" : "text-blue-800"
+          } flex items-center text-xl sm:text-lg s:text-base `}
         >
           <Link
             to="/login"
