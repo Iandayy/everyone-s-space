@@ -2,23 +2,44 @@ import { useState, useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { categoryState } from "../recoil/atom/categoryState";
 
-const usePost = (props) => {
+const usePost = ({
+  category: propsCategory,
+  mood,
+  date,
+  title,
+  content,
+  categoryName,
+  categoryNav,
+  setCurrentCategory,
+  method,
+  postPath,
+  currentNav,
+}) => {
   const category = useRecoilValue(categoryState);
 
   const [inputValue, setInputValue] = useState({
-    category: props.category,
-    mood: props.mood,
-    date: props.date,
-    title: props.title,
-    content: props.content,
+    category: propsCategory,
+    mood,
+    date,
+    title,
+    content,
   });
 
   const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
-    if (inputValue.title !== "" && inputValue.content !== "") {
-      setIsValid(() => true);
-    } else setIsValid(() => false);
+    if (inputValue.title === "" && inputValue.content === "") {
+      setIsValid(false);
+      return;
+    }
+
+    setIsValid(true);
+    // if (inputValue.title !== "" && inputValue.content !== "") {
+    //   setIsValid(true);
+    //   return;
+    // }
+
+    // setIsValid(false);
   }, [inputValue.title, inputValue.content]);
 
   const onInputChange = (e) => {
@@ -35,14 +56,14 @@ const usePost = (props) => {
     if (!isValid) return;
 
     try {
-      const res = await props.method(props.postPath, inputValue);
+      const res = await method(postPath, inputValue);
       alert(res.data.message);
 
-      if (props.categoryName.includes("Edit"))
-        props.setCurrentCategory(inputValue.category);
-      else props.setCurrentCategory(props.categoryNav);
+      if (categoryName.includes("Edit"))
+        setCurrentCategory(inputValue.category);
+      else setCurrentCategory(categoryNav);
 
-      window.location.replace(props.currentNav);
+      window.location.replace(currentNav);
     } catch (err) {
       console.log("err", err);
       alert(err.response.data.message);

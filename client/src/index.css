@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @layer components {
+  .header-wrapper {
+    @apply cursor-pointer text-4xl sm:text-2xl s:text-xl my-2;
+  }
+} */

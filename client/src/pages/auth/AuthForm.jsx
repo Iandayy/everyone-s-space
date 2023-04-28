@@ -8,10 +8,10 @@ const AuthForm = ({
   isValid,
 }) => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col justify-center items-center">
       <form
         onSubmit={onSubmit}
-        className="flex flex-col w-80 p-6 my-10 border rounded-md shadow-md"
+        className="flex flex-col w-80 p-5 border rounded-md shadow-md"
       >
         <h2 className="text-start text-4xl mb-12">{currentPage}</h2>
         <section className="flex flex-col mb-6">
@@ -58,7 +58,7 @@ const AuthForm = ({
             />
           </section>
         )}
-        <Button str={currentPage} className="mt-4" disabled={!isValid} />
+        <Button str={currentPage} className="" disabled={!isValid} />
       </form>
     </div>
   );
