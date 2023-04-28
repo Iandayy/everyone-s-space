@@ -1,14 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import User from "./User";
 
 const Header = () => {
+  const homePath = useLocation().pathname === "/";
   return (
-    <header className="flex justify-between items-center m-5 mb-10 text-blue-800">
+    <header className="flex justify-between items-center p-5 z-10 relative">
       <Link
         to="/"
-        className="cursor-pointer text-4xl sm:text-2xl s:text-xl my-2"
+        className="cursor-pointer text-4xl sm:text-2xl s:text-xl py-2 "
       >
-        <em className="border-solid border-blue-800 border-2 rounded-3xl font-bold p-2 shadow-md hover:shadow-2xl">
+        <em
+          className={`${
+            homePath
+              ? "text-slate-50  border-slate-50 hover:shadow-slate-50"
+              : " text-blue-800 border-blue-800 hover:shadow-blue-800"
+          } border-solid font-black rounded-3xl p-2 shadow-md border-2`}
+        >
           Everyone' Space
         </em>
       </Link>

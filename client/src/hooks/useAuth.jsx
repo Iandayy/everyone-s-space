@@ -1,23 +1,34 @@
 import { useState, useEffect } from "react";
 import instance from "../service/request";
 
+const DEFAULT_INPUT_VALUE = Object.freeze({
+  name: "",
+  password: "",
+  check: "",
+});
+
 const useAuth = () => {
-  const [inputValue, setInputValue] = useState({
-    name: "",
-    password: "",
-    check: "",
-  });
+  const [inputValue, setInputValue] = useState(DEFAULT_INPUT_VALUE);
 
   const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
-    if (inputValue.name !== "" && inputValue.password !== "") {
-      if (window.location.pathname === "/join") {
-        if (inputValue.check !== "") setIsValid(() => true);
-        else setIsValid(() => false);
-      } else setIsValid(() => true);
-    } else setIsValid(() => false);
-  }, [inputValue.name, inputValue.password, inputValue.check]);
+    const { name, password, check } = inputValue;
+
+    if (name === "" && password === "") {
+      setIsValid(false);
+      return;
+    }
+
+    const isJoinPage = window.location.pathname === "/join";
+
+    if (isJoinPage && check === "") {
+      setIsValid(false);
+      return;
+    }
+
+    setIsValid(true);
+  }, [inputValue]);
 
   const inputValueChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -40,11 +51,7 @@ const useAuth = () => {
     try {
       const res = await instance.post(`/auth/${path}`, items);
       alert(res.data.message);
-      setInputValue(() => ({
-        name: "",
-        password: "",
-        check: "",
-      }));
+      setInputValue(DEFAULT_INPUT_VALUE);
       successCallback();
     } catch (err) {
       alert(err.response.data.message);

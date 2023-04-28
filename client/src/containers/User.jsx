@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useLocation } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 import { loginState } from "../recoil/atom/loginState";
 import { Link } from "react-router-dom";
@@ -10,6 +11,7 @@ const User = () => {
   const [cookies] = useCookies();
   const isLogin = useRecoilValue(loginState);
   const setIsLogin = useSetRecoilState(loginState);
+  const homePath = useLocation().pathname === "/";
 
   useEffect(() => {
     setIsLogin(!!cookies.login);
@@ -18,11 +20,21 @@ const User = () => {
   return (
     <>
       {!isLogin && (
-        <article className="text-xl sm:text-lg s:text-base">
-          <Link to="/login" className="mr-2 hover:font-semibold">
+        <article
+          className={`${
+            homePath && "text-slate-50"
+          } flex items-center text-xl sm:text-lg s:text-base text-blue-800`}
+        >
+          <Link
+            to="/login"
+            className="absolute right-16 s:right-14 hover:font-semibold"
+          >
             Login
           </Link>
-          <Link to="/join" className="hover:font-semibold">
+          <Link
+            to="/join"
+            className="absolute right-0 mr-5 hover:font-semibold"
+          >
             Join
           </Link>
         </article>
