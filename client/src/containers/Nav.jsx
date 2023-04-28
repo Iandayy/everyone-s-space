@@ -4,12 +4,6 @@ import { useMemo } from "react";
 import { categoryState } from "../recoil/atom/categoryState";
 import useNav from "../hooks/useNav";
 
-// margin: bottom, top
-// margin-bottom
-// navgitation margin-top
-
-// margin 한 방향을
-
 const Nav = () => {
   const { categories, to } = useNav();
   const [currentCategory, setCurrentCategory] = useRecoilState(categoryState);

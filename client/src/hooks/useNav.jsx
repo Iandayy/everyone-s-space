@@ -22,20 +22,12 @@ const useNav = () => {
     setCategories([]);
   }, [location]);
 
-  // 어떤 값에 따라서 계속 변하는 상태이긴한데, 어떤 값에 의존할 때
-
   const to = useMemo(() => {
     if (location.pathname.startsWith("/posts")) return "posts";
     if (location.pathname.startsWith("/mypage")) return "mypage";
 
     return "";
   }, [location]);
-
-  // on.pathname.startsWith("/posts")
-  //   ? "posts"
-  //   : location.pathname.startsWith("/mypage")
-  //   ? "mypage"
-  //   : "";
 
   return {
     categories,

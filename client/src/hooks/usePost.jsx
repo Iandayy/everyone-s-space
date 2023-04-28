@@ -34,12 +34,6 @@ const usePost = ({
     }
 
     setIsValid(true);
-    // if (inputValue.title !== "" && inputValue.content !== "") {
-    //   setIsValid(true);
-    //   return;
-    // }
-
-    // setIsValid(false);
   }, [inputValue.title, inputValue.content]);
 
   const onInputChange = (e) => {

@@ -7,17 +7,10 @@ const DEFAULT_INPUT_VALUE = Object.freeze({
   check: "",
 });
 
-// DEFAULT_INPUT_VALUE.name = "박수연"
-
 const useAuth = () => {
   const [inputValue, setInputValue] = useState(DEFAULT_INPUT_VALUE);
 
   const [isValid, setIsValid] = useState(false);
-
-  // 1. if else 줄이기
-  // 2. 조건문 연산자를 변수 하나로 합쳐보기
-  // 3. 구조분해 할당
-  // +) 이해하기 쉬운 변수명 짓기
 
   useEffect(() => {
     const { name, password, check } = inputValue;
@@ -27,10 +20,6 @@ const useAuth = () => {
       return;
     }
 
-    // if (window.location.pathname === "/join") {
-    //   if (inputValue.check !== "") setIsValid(true);
-    //   else setIsValid(false);
-    // } else setIsValid(true);
     const isJoinPage = window.location.pathname === "/join";
 
     if (isJoinPage && check === "") {

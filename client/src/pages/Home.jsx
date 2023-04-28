@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { categoryState } from "../recoil/atom/categoryState";
 import Button from "../components/Button";
-import nightSky from "../images/nightSky.jpg";
 
 const Home = () => {
   const setCategory = useSetRecoilState(categoryState);
