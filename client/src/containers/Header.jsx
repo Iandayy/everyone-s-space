@@ -1,12 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import User from "./User";
 
-// m-5 : 위 아래 좌 우 모두 마진 20px
-// mb-10: 아래에만 마진 40px
-// mb: 40px padding: 20px
-
-// apple: "flex justify-between items-center p-5 mb-5 text-blue-800"
-
 const Header = () => {
   const homePath = useLocation().pathname === "/";
   return (
