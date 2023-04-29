@@ -4,7 +4,6 @@ import { categoryState } from "../recoil/atom/categoryState";
 
 const usePost = ({
   category: propsCategory,
-  mood,
   date,
   title,
   content,
@@ -19,7 +18,6 @@ const usePost = ({
 
   const [inputValue, setInputValue] = useState({
     category: propsCategory,
-    mood,
     date,
     title,
     content,

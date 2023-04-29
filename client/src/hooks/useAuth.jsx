@@ -15,7 +15,7 @@ const useAuth = () => {
   useEffect(() => {
     const { name, password, check } = inputValue;
 
-    if (name === "" && password === "") {
+    if (name === "" || password === "") {
       setIsValid(false);
       return;
     }

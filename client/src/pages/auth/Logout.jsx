@@ -11,7 +11,10 @@ const Logout = () => {
     }
   };
   return (
-    <button onClick={logoutHandler} className="hover:font-semibold">
+    <button
+      onClick={logoutHandler}
+      className="text-blue-800 hover:font-semibold"
+    >
       Logout
     </button>
   );
