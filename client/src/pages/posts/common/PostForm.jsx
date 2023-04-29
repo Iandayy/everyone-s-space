@@ -28,7 +28,6 @@ const PostForm = ({
             <option value="mystery">mystery</option>
           </select>
         </section>
-
         <section className="flex itmes-center pb-8">
           <label htmlFor="title" className="pt-2 w-1/3 s:w-2/5">
             Title
