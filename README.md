@@ -1,6 +1,6 @@
-# 💡 Everyone's Post :)
+# 💡 Everyone's Space :)
 
-**[Everyone's Post](https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/)** 는 모두가 글을 작성할 수 있는 웹서비스입니다.
+**[Everyone's Space](https://web-client-dpuqy925lbnnny33.gksl2.cloudtype.app/)** 는 모두가 우주에 관련한 이야기할 수 있는 웹서비스입니다.
 
 <br />
 
