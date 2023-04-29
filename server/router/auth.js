@@ -41,7 +41,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const validPassword = await bcrypt.compare(password, user.password);
+    const validPassword = bcrypt.compare(password, user.password);
 
     const options = {
       sameSite: "None",

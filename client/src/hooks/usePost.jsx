@@ -26,7 +26,7 @@ const usePost = ({
   const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
-    if (inputValue.title === "" && inputValue.content === "") {
+    if (inputValue.title === "" || inputValue.content === "") {
       setIsValid(false);
       return;
     }
