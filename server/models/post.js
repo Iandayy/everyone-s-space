@@ -14,10 +14,6 @@ const postSchema = new mongoose.Schema({
   date: {
     type: String,
   },
-  mood: {
-    type: Number,
-    enum: [1, 2, 3, 4, 5],
-  },
   category: {
     type: String,
     enum: ["universe", "alien", "mystery"],

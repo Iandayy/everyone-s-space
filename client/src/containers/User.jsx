@@ -14,7 +14,7 @@ const User = () => {
   const homePath = useLocation().pathname === "/";
 
   useEffect(() => {
-    setIsLogin(!!cookies.login);
+    setIsLogin(!!cookies.isLogin);
   }, [cookies, setIsLogin]);
 
   return (

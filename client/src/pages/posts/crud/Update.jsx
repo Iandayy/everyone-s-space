@@ -11,7 +11,6 @@ const Update = () => {
 
   const { inputValue, category, onInputChange, onSubmit } = usePost({
     categoryName: "Edit Posts",
-    mood: post.mood,
     date: post.date,
     title: post.title,
     content: post.content,

@@ -12,8 +12,9 @@ const Post = ({ post }) => {
   return (
     <ul>
       <Link to="/posts/read" onClick={postIdHandler}>
-        <li className="rounded-md p-5 hover:bg-gray-50 shadow">
-          <strong>{post.title}</strong> <em>{` - ${post.name} `}</em>
+        <li className="flex flex-col rounded-md p-5 hover:bg-gray-50 shadow">
+          <strong className="pb-2">{post.title}</strong>
+          <em className="text-sm">{`- ${post.name} `}</em>
         </li>
       </Link>
     </ul>

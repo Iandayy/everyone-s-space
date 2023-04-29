@@ -54,7 +54,7 @@ router.post("/login", async (req, res) => {
 
     if (validPassword) {
       res.cookie("member_id", `${user._id}`, options);
-      res.cookie("login", "true", options);
+      res.cookie("isLogin", "true", options);
       res.send({ message: "Welcome to Everyone's Post !" });
     } else {
       res.status(401).send({ message: "Please check your password again." });
@@ -72,7 +72,7 @@ router.post("/logout", async (req, res) => {
     domain: ".cloudtype.app",
   };
   res.clearCookie("member_id", options);
-  res.clearCookie("login", options);
+  res.clearCookie("isLogin", options);
   res.send({ message: "Thank you !" });
 });
 

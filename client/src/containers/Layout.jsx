@@ -7,7 +7,7 @@ const Layout = (props) => {
   const authPath = path === "/login" || path === "/join";
   return (
     <main
-      className={`flex flex-col p-5 min-h-[calc(100vh-235px)] ${
+      className={`flex flex-col p-5 min-h-[calc(100vh-238px)] ${
         (authPath || homePath) && "h-[calc(100vh-152px)]"
       }`}
     >

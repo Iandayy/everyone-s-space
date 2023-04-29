@@ -15,7 +15,6 @@ const seedPosts = [
     title: "library",
     content: "I am going to library.",
     date: "1981-10-26",
-    mood: 1,
     category: "alien",
   },
   {
@@ -23,7 +22,6 @@ const seedPosts = [
     title: "Volleyball",
     content: "Volleyball is fun.",
     date: "2022-11-12",
-    mood: 4,
     category: "alien",
   },
   {
@@ -31,7 +29,6 @@ const seedPosts = [
     title: "love",
     content: "I love you.",
     date: "1981-10-26",
-    mood: 5,
     category: "alien",
   },
   {
@@ -39,7 +36,6 @@ const seedPosts = [
     title: "me",
     content: "Me too.",
     date: "1981-10-26",
-    mood: 5,
     category: "alien",
   },
 ];
